@@ -1,8 +1,9 @@
 {
-  "title": "Shristi & Harsh",
-  "description": "Join Shristi and Harsh for the Mehndi Ceremony, Haldi Ceremony and Wedding Ceremony on 9-10 December 2026 in Indirapuram, Ghaziabad, Uttar Pradesh. Celebration times, family details and venue directions.",
+  "title": "Kishan & Pooja | Wedding Invitation",
+  "description": "Celebrate Kishan and Pooja’s wedding on 3 December 2026 at Punjabi Bhawan and their reception on 6 December at Khushi Garden, Faridabad. Explore the full programme, family greetings and venue directions.",
+  "language": "en",
   "icons": {
-    "icon": "/assets/shristi-harsh-monogram.png"
+    "icon": "/assets/kishan-pooja-monogram.png"
   },
   "robots": {
     "index": false

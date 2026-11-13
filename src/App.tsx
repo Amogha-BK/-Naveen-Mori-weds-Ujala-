@@ -37,7 +37,7 @@ function Monogram({ className = "" }: { className?: string }) {
     <img
       className={`monogram ${className}`}
       src={config.monogram}
-      alt="S and H wedding monogram for Shristi and Harsh"
+      alt="K and P wedding monogram for Kishan and Pooja"
     />
   );
 }
@@ -54,7 +54,7 @@ function InvitationOpening({ onOpen }: { onOpen: () => void }) {
   return (
     <motion.section
       className="invitation-opening"
-      aria-label="Open Shristi and Harsh’s wedding invitation"
+      aria-label="Open Kishan and Pooja’s wedding invitation"
       initial={{ opacity: 1 }}
       exit={{ opacity: reducedMotion ? 0 : [1, 1, 0] }}
       transition={{ duration: reducedMotion ? 0.15 : 1.65, times: [0, 0.9, 1], ease: "easeInOut" }}
@@ -92,7 +92,7 @@ function InvitationOpening({ onOpen }: { onOpen: () => void }) {
             onClick={onOpen}
             disabled={!isPresent}
             autoFocus
-            aria-label="Open Shristi and Harsh’s wedding invitation"
+            aria-label="Open Kishan and Pooja’s wedding invitation"
             whileHover={reducedMotion ? undefined : { scale: 1.09, rotate: -3 }}
             whileTap={reducedMotion ? undefined : { scale: 0.9, rotate: 2 }}
             exit={reducedMotion ? { opacity: 0 } : { scale: [1, 0.92, 1.18], opacity: [1, 1, 0], rotate: [0, -5, 3] }}
@@ -124,9 +124,9 @@ function InvitationOpening({ onOpen }: { onOpen: () => void }) {
         <Pointer className="opening-tap-hint" strokeWidth={1.2} aria-hidden="true" />
         <p className="opening-instruction">Tap the monogram</p>
         <p className="opening-whisper">to open our invitation</p>
-        <p className="opening-song-note"><Music size={11} aria-hidden="true" /> Opens with Kudmayi</p>
-        <div className="opening-date-line"><span />10 December 2026<span /></div>
-        <p className="opening-location">Indirapuram</p>
+        <p className="opening-song-note"><Music size={11} aria-hidden="true" /> Opens with music</p>
+        <div className="opening-date-line"><span />{config.dateLabel}<span /></div>
+        <p className="opening-location">{config.locationLabel}</p>
         </motion.div>
       </div>
     </motion.section>
@@ -258,7 +258,7 @@ function Navigation() {
   return (
     <nav className="site-nav" aria-label="Invitation navigation">
       <a className="nav-mark focus-ring" href="#our-wedding" aria-label="Home" onClick={() => setOpen(false)}>
-        S <span>&</span> H
+        K <span>&</span> P
       </a>
       <div id="invitation-navigation" className={`nav-links ${open ? "nav-links-open" : ""}`}>
         {navItems.map(([label, id]) => (
@@ -311,8 +311,8 @@ function Countdown() {
   return (
     <div>
       <p className="countdown-label">{remaining.complete ? "Our wedding day is here!" : "Counting down to our wedding day"}</p>
-      <p className="countdown-target"><time dateTime={config.countdownTarget}>10 December 2026 · 12:00 a.m. IST</time></p>
-      <div className="countdown" role="timer" aria-label="Time remaining until midnight at the start of 10 December 2026, Indian Standard Time">
+      <p className="countdown-target"><time dateTime={config.countdownTarget}>{config.dateLabel} · 12:00 a.m. IST</time></p>
+      <div className="countdown" role="timer" aria-label={`Time remaining until ${config.dateLabel}, Indian Standard Time`}>
         {values.map(([label, value]) => (
           <div key={label}>
             <strong>{String(value).padStart(2, "0")}</strong>
@@ -340,6 +340,7 @@ function SectionHeading({ eyebrow, children }: { eyebrow?: string; children: Rea
 }
 
 function EventLocation({ event, className }: { event: Celebration; className: string }) {
+  if (!event.venue) return null;
   return (
     <div className={`event-location ${className}`}>
       <span className="event-venue">{event.venue}</span>
@@ -366,15 +367,15 @@ function EventCard({ event, index }: { event: Celebration; index: number }) {
       <div className="event-portrait">
       <img src={event.image} alt="" loading="lazy" decoding="async" width={1024} height={1536} />
       <div className="event-content">
-        <span className="event-number">Shristi &amp; Harsh · Celebration {String(index + 1).padStart(2, "0")}</span>
+        <span className="event-number">Kishan &amp; Pooja · Celebration {String(index + 1).padStart(2, "0")}</span>
         <h3>{event.shortName}</h3>
         <p className="event-subtitle">{event.title.split(" — ")[1]}</p>
         <div className="event-details">
           <strong>{event.dateLabel}</strong>
-          <span>{event.timeLabel}</span>
-          {event.phereTime && <span>Phere: {event.phereTime}</span>}
+          <div className="event-schedule">
+            {event.schedule.map((item) => <div key={item.name}><span>{item.name}</span><b>{item.time}</b></div>)}
+          </div>
         </div>
-        <EventLocation event={event} className="event-location-in-card" />
       </div>
       </div>
       <EventLocation event={event} className="event-location-mobile" />
@@ -567,7 +568,7 @@ function RSVP() {
         </AnimatePresence>
         <label className="field">
           <span>
-            Message for Shristi &amp; Harsh <em>Optional</em>
+            Message for Kishan &amp; Pooja <em>Optional</em>
           </span>
           <textarea
             rows={4}
@@ -689,7 +690,7 @@ export default function App() {
         <section className="hero" id="our-wedding">
           <div className="paper-grain" />
           <div className="hero-inner">
-            <p className="ganesh-invocation">॥ Shri Ganeshaya Namah ॥</p>
+            <p className="ganesh-invocation">{config.invocation}</p>
             <Monogram className="hero-monogram" />
             <p className="eyebrow">The wedding celebrations of</p>
             <h1 ref={invitationHeading} tabIndex={-1}>
@@ -717,25 +718,33 @@ export default function App() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.5 }}
           >
-            <p className="ganesh-invocation family-invocation">॥ Shri Ganeshaya Namah ॥</p>
+            <p className="ganesh-invocation family-invocation">{config.invocation}</p>
+            <p className="translated-blessing">{config.openingBlessing}</p>
             <p className="family-memory">{config.memorialLine}</p>
             <p>{config.invitationLine}</p>
             <div className="invitation-families" aria-label="The couple and their families">
               <div>
                 <h2>{config.couple.first}</h2>
-                <p>{config.couple.brideParents}</p>
+                <p>{config.couple.groomParents}</p>
+                <p>{config.couple.groomGrandparents}</p>
+                <p className="family-address">{config.couple.groomAddress}</p>
               </div>
               <span className="family-weds">weds</span>
               <div>
                 <h2>{config.couple.second}</h2>
-                <p>{config.couple.groomGrandparents}</p>
-                <p>{config.couple.groomParents}</p>
+                <p>{config.couple.brideParents}</p>
+                <p className="family-address">{config.couple.brideAddress}</p>
               </div>
             </div>
             <p className="family-blessing">{config.blessingLine}</p>
             <div className="invitation-regards">
-              <div><h3>R.S.V.P.</h3><p>{config.rsvp}</p></div>
-              <div><h3>With best wishes from:</h3><p>{config.wishesFrom}</p></div>
+              <div><h3>With a warm invitation from</h3><p>{config.rsvp}</p></div>
+              <div><h3>With best wishes from</h3><p>{config.wishesFrom.join(" · ")}</p></div>
+            </div>
+            <div className="welcoming-family">
+              <h3>Eagerly awaiting your presence</h3>
+              <p>{config.welcomingFamily.join(" · ")}</p>
+              <p className="whole-family">And the entire Yadav family</p>
             </div>
             <Monogram />
           </motion.div>
@@ -748,8 +757,9 @@ export default function App() {
 
         <section className="celebrations-section" id="celebrations">
           <Monogram className="celebrations-monogram" />
-          <p className="programme-invocation">॥ Shri Ganeshaya Namah ॥</p>
-          <SectionHeading eyebrow="9–10 December 2026">Three celebrations, a lifetime of love</SectionHeading>
+          <p className="programme-invocation">{config.invocation}</p>
+          <p className="translated-blessing">{config.programmeBlessing}</p>
+          <SectionHeading eyebrow={config.programmeLabel}>Our wedding celebrations</SectionHeading>
           <div className="events">
             {config.celebrations.map((event, index) => (
               <EventCard key={event.id} event={event} index={index} />
@@ -759,19 +769,31 @@ export default function App() {
 
         <section className="venue-section" id="venue">
           <div className="venue-content">
-            <SectionHeading eyebrow="Where we gather for the wedding">The wedding venue</SectionHeading>
+            <SectionHeading eyebrow="Where we gather">Two places, one beautiful celebration</SectionHeading>
+            <div className="venue-grid">
+            {[{ ...config.venue, label: "Wedding · 3 December" }, { ...config.reception, label: "Reception · 6 December" }].map((venue) => <div className="venue-detail" key={venue.name}>
             <MapPin className="venue-pin" />
-            <h3>{config.venue.name}</h3>
-            <p>{config.venue.address}</p>
+            <p className="eyebrow">{venue.label}</p>
+            <h3>{venue.name}</h3>
+            <p>{venue.address}</p>
             <a
               className="button button-solid focus-ring"
-              href={config.venue.mapUrl}
+              href={venue.mapUrl}
               target="_blank"
               rel="noreferrer"
             >
               <MapPin /> Open in Google Maps
             </a>
+            </div>)}
+            </div>
           </div>
+        </section>
+
+        <section className="children-welcome">
+          <Flower2 aria-hidden="true" strokeWidth={1} />
+          <p className="eyebrow">A little invitation, with lots of love</p>
+          <blockquote>{config.childrenMessage}</blockquote>
+          <p className="children-signature">{config.children}</p>
         </section>
 
         {optionalDetails.length > 0 && (
@@ -793,6 +815,7 @@ export default function App() {
               {config.hosts}
             </p>
             <p>{config.homeAddress}</p>
+            <p className="native-address">{config.nativeAddress}</p>
             <div className="family-contacts">
               <div className="contact-numbers" aria-label="Family contact numbers">
                 <span className="contact-label">Contact:</span>

@@ -1568,7 +1568,7 @@ footer p {
 .family-section p { font-size: clamp(1.5rem, 5vw, 2.35rem); line-height: 1.45; }
 .section-heading h2 { font-weight: 400; line-height: 1.2; }
 .venue-content > p, .parent-lines { font-family: var(--font-body); font-size: clamp(0.8rem, 2.4vw, 0.95rem); line-height: 1.7; }
-.venue-section::before { background-image: url('/assets/shristi-harsh-celebration.png'); opacity: 0.18; filter: none; }
+.venue-section::before { background-image: url('/assets/kishan-pooja-celebration.png'); opacity: 0.18; filter: none; }
 .family-contacts { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem 1.5rem; margin-top: 1.5rem; font-size: 0.9rem; }
 .family-contacts > span { flex-basis: 100%; }
 .family-contacts a { color: var(--taupe); text-underline-offset: 4px; }
@@ -1784,4 +1784,100 @@ footer { padding-bottom: calc(6rem + env(safe-area-inset-bottom, 0px)); }
   .opening-date-line { margin-top: 0.75rem; }
   .opening-song-note { margin-top: 0.5rem; }
   .opening-tap-hint { display: none; }
+}
+
+/* Kishan & Pooja: ivory stationery, botanical gold and burgundy. */
+.translated-blessing {
+  max-width: 620px;
+  margin: 0 auto 2rem;
+  color: #756143;
+  font: italic 400 clamp(1rem, 2.5vw, 1.2rem)/1.8 var(--font-display);
+  text-align: center;
+  text-wrap: balance;
+}
+.family-section .translated-blessing {
+  font: italic 400 clamp(1rem, 2.5vw, 1.2rem)/1.8 var(--font-display);
+  margin-bottom: 2rem;
+}
+.family-section .family-address { color: #756143; }
+.welcoming-family {
+  width: 100%;
+  margin-top: 2rem;
+  padding: 1.75rem 0;
+  border-block: 1px solid rgb(171 133 46 / 0.25);
+}
+.welcoming-family h3 { color: var(--taupe); font-size: 1.65rem; }
+.family-section .welcoming-family p {
+  max-width: 620px;
+  margin: 0.9rem auto 0;
+  font: 400 0.9375rem/2 var(--font-body);
+  text-wrap: balance;
+}
+.family-section .welcoming-family .whole-family {
+  color: var(--sage-deep);
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-style: italic;
+}
+.hero-monogram { height: auto; aspect-ratio: 1; border-radius: 50%; }
+.event-portrait { display: grid; min-height: 660px; }
+.event-portrait > img {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: fill;
+}
+.event-content {
+  position: relative;
+  inset: auto;
+  margin: 175px 13% 155px;
+  gap: 0.2rem;
+}
+.event-schedule { display: grid; gap: 0.8rem; padding-top: 0.6rem; }
+.event-schedule > div { display: flex; flex-direction: column; gap: 0.15rem; }
+.event-schedule b { font-size: 1.15em; color: var(--taupe); font-weight: 600; }
+.event-location-mobile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.5rem 1.75rem 0.25rem;
+  color: var(--ink);
+  font: 400 0.9375rem/1.75 var(--font-body);
+  text-align: center;
+}
+.event-location-mobile .event-venue { font-size: 1.8rem; color: var(--taupe); }
+.event-location-mobile .event-actions { margin-top: 0.65rem; }
+.event-location-mobile .button { font-size: 0.75rem; min-height: 48px; }
+.venue-content { width: min(100%, 960px); }
+.venue-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; width: 100%; }
+.venue-detail { display: flex; flex-direction: column; align-items: center; }
+.venue-detail > p:not(.eyebrow) { margin: 1rem 0 1.5rem; font-size: 0.9375rem; line-height: 1.8; flex: 1; max-width: 340px; }
+.venue-detail .eyebrow { margin-bottom: 0.75rem; font-size: 0.7rem; }
+.venue-detail h3 { font-size: clamp(2rem, 5vw, 3rem); }
+.children-welcome {
+  padding: clamp(3.5rem, 8vw, 6rem) 1.5rem;
+  text-align: center;
+  background: #faf6ee;
+  border-block: 1px solid rgb(171 133 46 / 0.15);
+}
+.children-welcome > svg { margin: 0 auto 1.5rem; color: var(--gold); width: 32px; height: 32px; }
+.children-welcome blockquote {
+  max-width: 620px;
+  margin: 1.5rem auto;
+  color: var(--taupe);
+  font: italic 400 clamp(1.7rem, 4vw, 2.5rem)/1.5 var(--font-display);
+  text-wrap: balance;
+}
+.children-signature { color: #756143; font: 400 2rem/1.4 var(--font-script); }
+.native-address { margin-top: 0.75rem; }
+@media (max-width: 600px) {
+  .event-portrait { min-height: 540px; }
+  .event-content { margin: 125px 12% 110px; }
+  .event-schedule { gap: 0.7rem; }
+  .venue-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  .venue-detail + .venue-detail { border-top: 1px solid rgb(171 133 46 / 0.25); padding-top: 1rem; }
+  .venue-detail { width: 100%; }
+  .family-section .translated-blessing { font-size: 1.1rem; }
 }

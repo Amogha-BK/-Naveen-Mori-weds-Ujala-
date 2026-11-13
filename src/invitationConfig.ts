@@ -1,9 +1,10 @@
 ﻿export type Celebration = {
-  id: "mehndi" | "haldi" | "wedding";
+  id: "pre-wedding" | "wedding" | "reception";
   shortName: string;
   title: string;
   dateLabel: string;
   timeLabel: string;
+  schedule: { name: string; time: string }[];
   venue: string;
   address: string;
   supportingLine: string;
@@ -12,66 +13,85 @@
   image: string;
   scene: "lanterns" | "fire" | "candlelight";
   mapUrl: string;
-  phereTime?: string;
 };
+
 const maps = (address: string) => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
 const weddingVenue = {
-  name: "The Grand Piazza",
-  address: "Lawn 1, CISF Road, Indirapuram, Ghaziabad",
+  name: "Punjabi Bhawan",
+  address: "2752, Sector 16 Road, Canal Colony, Sector 16A, Faridabad – 121002",
 };
-const weddingMap = maps(`${weddingVenue.name}, ${weddingVenue.address}`);
-const homeAddress = "26 C, Heritage Divine, Gyan Khand 2, Indirapuram, Ghaziabad, Uttar Pradesh";
-const mehndiAddress = "Golden Rivaah Party Hall, Gyan Khand-2, Indirapuram, Ghaziabad, Uttar Pradesh";
-const brideParents = "D/O Smt. Asha Devi & Sh. Jagat Singh Chauhan";
-const groomParents = "S/O Smt. Renu Chaudhary & Sh. Dhanveer Singh";
+const receptionVenue = {
+  name: "Khushi Garden",
+  address: "Wazirpur Road, Jeevan Nagar, Sector 87, Neharpar, near Amrita Hospital, Faridabad, Haryana – 121014",
+};
+const homeAddress = "House No. 37, Lakhpat Colony, Meethapur Extension, New Delhi – 110044";
+const groomParents = "Son of Mrs. Sushila Yadav & Mr. Jaykumar Yadav";
+const brideParents = "Daughter of Mrs. Madhu & Mr. Mukesh Kumar Bansal";
+
 export const invitationConfig = {
   couple: {
-    first: "Shristi",
-    second: "Harsh",
-    firstParents: `Shristi · ${brideParents}`,
-    secondParents: `Harsh · ${groomParents}`,
+    first: "Kishan",
+    second: "Pooja",
+    firstParents: groomParents,
+    secondParents: brideParents,
     brideParents,
     groomParents,
-    groomGrandparents: "Grandson of Smt. Kamla Devi & Sh. Pramveer Singh",
+    groomGrandparents: "Grandson of the late Mrs. Shyam Dulari Yadav & the late Mr. Rajdev Yadav",
+    groomAddress: homeAddress,
+    brideAddress: "Tigri, Khanpur, New Delhi",
   },
-  weddingLabel: "10 December 2026 · Indirapuram",
-  countdownTarget: "2026-12-10T00:00:00+05:30",
-  memorialLine: "With the blessings and in loving memory of Late Smt. Jagdai Devi & Late Veer Singh Chauhan",
-  invitationLine: "Shristi & Harsh cordially invite you to grace the occasion of their Wedding Ceremony with your presence and blessings.",
-  blessingLine: "We look forward to your gracious presence and blessings on this joyous occasion.",
+  dateLabel: "3 December 2026",
+  locationLabel: "Faridabad",
+  programmeLabel: "2, 3 & 6 December 2026",
+  weddingLabel: "Thursday, 3 December 2026 · Faridabad",
+  countdownTarget: "2026-12-03T00:00:00+05:30",
+  invocation: "With the blessings of Lord Ganesha",
+  openingBlessing: "May Lord Vishnu, the bearer of Garuda’s banner and the lotus-eyed Lord, bless this union with happiness and good fortune.",
+  programmeBlessing: "O Lord Ganesha, of the curved trunk and mighty form, radiant as a million suns, please remove all obstacles from our endeavours, always.",
+  memorialLine: "With the infinite grace of the Almighty",
+  invitationLine: "Mr. Bal Govind Yadav cordially invites you to celebrate the wedding of his nephew’s beloved son, Kishan, with Pooja.",
+  blessingLine: "Please join us for the celebrations and bless the bride and groom with your gracious presence.",
   homeAddress,
-  hosts: "Mrs. & Mr. Jagat Singh Chauhan",
-  rsvp: "Smt. Asha Devi & Sh. Jagat Singh Chauhan",
-  wishesFrom: "All Relatives & Friends",
-  monogram: "/assets/shristi-harsh-monogram.png",
-  artwork: "/assets/shristi-harsh-celebration.png",
-  venue: { ...weddingVenue, mapUrl: weddingMap },
-  contacts: ["9899577693", "9582317003", "9899012987"],
+  nativeAddress: "Village Baliya, Post Janipur, District Gorakhpur, Uttar Pradesh",
+  hosts: "Mr. Bal Govind Yadav & Mr. Jaykumar Yadav",
+  rsvp: "Mr. Bal Govind Yadav",
+  wishesFrom: ["Dharmendra Yadav", "Jaykumar Yadav", "Mahendra Yadav"],
+  welcomingFamily: ["Gulab Yadav", "Sanjay Yadav", "Ratnesh Yadav", "Sachin Yadav", "Ankit Yadav", "Shivam", "Balaji", "Sumit", "Nitesh", "Mohan", "Pratik", "Akshit", "Kiyansh"],
+  children: "Aditya & Vihaan",
+  childrenMessage: "Turmeric, sandalwood and the bonds of family — we warmly welcome you to our uncle’s wedding!",
+  monogram: "/assets/kishan-pooja-monogram.png",
+  artwork: "/assets/kishan-pooja-celebration.png",
+  venue: { ...weddingVenue, mapUrl: maps(`${weddingVenue.name}, ${weddingVenue.address}`) },
+  reception: { ...receptionVenue, mapUrl: maps(`${receptionVenue.name}, ${receptionVenue.address}`) },
+  contacts: ["7897608033", "8588990124", "9783880485"],
   optional: { travel: "", stay: "", contact: "", musicUrl: "/assets/kudmayi.mp3", whatsappHostNumber: "" },
   celebrations: [
     {
-      id: "mehndi", shortName: "Mehndi Ceremony", title: "Mehndi Ceremony — Rang Pyaar Ke",
-      dateLabel: "Wednesday, 9 December 2026", timeLabel: "8:00 p.m.",
-      venue: "Golden Rivaah Party Hall", address: "Gyan Khand-2, Indirapuram, Ghaziabad (U.P.)",
-      supportingLine: "Henna-stained hands, music and a little magic. Let the celebrations begin!",
-      start: "2026-12-09T20:00:00+05:30", calendarTitle: "Shristi & Harsh · Mehndi Ceremony",
-      image: "/assets/mehndi-floral-arch-v2.png", scene: "lanterns", mapUrl: maps(mehndiAddress),
+      id: "pre-wedding", shortName: "Turmeric & Henna", title: "Pre-wedding — A Joyful Beginning",
+      dateLabel: "Wednesday, 2 December 2026", timeLabel: "11:00 a.m. & 4:00 p.m.",
+      schedule: [{ name: "Turmeric ceremony", time: "11:00 a.m." }, { name: "Henna ceremony", time: "4:00 p.m." }],
+      venue: "", address: "",
+      supportingLine: "A golden glow, henna-filled hands and the warmth of family.",
+      start: "2026-12-02T11:00:00+05:30", calendarTitle: "Kishan & Pooja · Pre-wedding Celebrations",
+      image: "/assets/haldi-floral-arch-v2.png", scene: "lanterns", mapUrl: "",
     },
     {
-      id: "haldi", shortName: "Haldi Ceremony", title: "Haldi Ceremony — Sunehre Pal",
-      dateLabel: "Thursday, 10 December 2026", timeLabel: "11:00 a.m.",
-      venue: "Bride’s Residence", address: homeAddress,
-      supportingLine: "A touch of turmeric, a shower of petals and blessings for a golden beginning.",
-      start: "2026-12-10T11:00:00+05:30", calendarTitle: "Shristi & Harsh · Haldi Ceremony",
-      image: "/assets/haldi-floral-arch-v2.png", scene: "candlelight", mapUrl: maps(homeAddress),
-    },
-    {
-      id: "wedding", shortName: "Wedding Ceremony", title: "Shubh Vivaah — A Promise of Forever",
-      dateLabel: "Thursday, 10 December 2026", timeLabel: "7:00 p.m.",
+      id: "wedding", shortName: "The Wedding", title: "Wedding — A Promise of Forever",
+      dateLabel: "Thursday, 3 December 2026", timeLabel: "Procession departs at 7:00 p.m.",
+      schedule: [{ name: "Groom’s ceremonial horse ride", time: "5:00 p.m." }, { name: "Wedding procession departure", time: "7:00 p.m." }],
       venue: weddingVenue.name, address: weddingVenue.address,
-      supportingLine: "Sacred vows, two hearts and the love of everyone who brought us here.",
-      start: "2026-12-10T19:00:00+05:30", calendarTitle: "Shristi & Harsh · Wedding Ceremony",
-      image: "/assets/wedding-floral-arch-v2.png", scene: "fire", mapUrl: weddingMap,
+      supportingLine: "Sacred vows, two hearts and a lifetime of togetherness.",
+      start: "2026-12-03T17:00:00+05:30", calendarTitle: "Kishan & Pooja · Wedding Celebrations",
+      image: "/assets/wedding-floral-arch-v2.png", scene: "fire", mapUrl: maps(`${weddingVenue.name}, ${weddingVenue.address}`),
+    },
+    {
+      id: "reception", shortName: "The Reception", title: "Reception — An Evening of Togetherness",
+      dateLabel: "Sunday, 6 December 2026", timeLabel: "7:00 p.m.",
+      schedule: [{ name: "Wedding reception", time: "7:00 p.m." }],
+      venue: receptionVenue.name, address: receptionVenue.address,
+      supportingLine: "Join us for an evening of love, laughter and celebration.",
+      start: "2026-12-06T19:00:00+05:30", calendarTitle: "Kishan & Pooja · Reception",
+      image: "/assets/mehndi-floral-arch-v2.png", scene: "candlelight", mapUrl: maps(`${receptionVenue.name}, ${receptionVenue.address}`),
     },
   ] satisfies Celebration[],
   calendar: { timezone: "Asia/Kolkata" },
