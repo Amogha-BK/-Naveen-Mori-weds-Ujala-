@@ -1516,8 +1516,8 @@ footer p {
   width: 100%;
 }
 
-/* Invitation artwork and celebration stationery for Shristi & Harsh. */
-.monogram { aspect-ratio: 1; height: auto; object-fit: contain; mix-blend-mode: multiply; }
+/* Invitation artwork and celebration stationery. */
+.monogram { aspect-ratio: 1; height: auto; object-fit: contain; mix-blend-mode: multiply; border-radius: 50%; }
 .hero { padding-bottom: clamp(220px, 55vw, 435px); }
 .hero-artwork { top: auto; height: auto; aspect-ratio: 3 / 2; z-index: 0; mask-image: linear-gradient(transparent, black 35%); }
 .hero-artwork img { display: block; width: 100%; height: auto; object-fit: contain; }
