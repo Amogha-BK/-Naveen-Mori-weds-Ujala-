@@ -1927,15 +1927,15 @@ footer .monogram {
   margin-block: auto;
 }
 .opening-flower {
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   margin: 0 auto 1.75rem;
   color: var(--gold);
 }
 .opening-kicker {
-  padding-inline: 1.5rem;
-  font: 600 clamp(9px, 1.6vw, 11px)/1.8 var(--font-body);
-  letter-spacing: 0.22em;
+  padding-inline: 0.5rem;
+  font: 600 clamp(12px, 1.8vw, 14px)/1.8 var(--font-body);
+  letter-spacing: 0.15em;
   text-transform: uppercase;
   text-wrap: balance;
 }
@@ -1944,8 +1944,8 @@ footer .monogram {
   grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   align-items: center;
   gap: clamp(22px, 3.8vw, 32px);
-  margin: clamp(2.25rem, 5vh, 3rem) 0;
-  font: 400 clamp(21px, 5.5vw, 52px)/1.2 var(--font-display);
+  margin: clamp(2.5rem, 6vh, 3.5rem) 0;
+  font: 400 clamp(25px, 7.4vw, 64px)/1.2 var(--font-display);
   letter-spacing: -0.02em;
 }
 .opening-names > span {
@@ -1963,7 +1963,7 @@ footer .monogram {
   display: grid;
   place-items: center;
   flex: 0 0 auto;
-  width: clamp(72px, 18vw, 132px);
+  width: clamp(72px, 24vw, 160px);
   margin: 0;
   aspect-ratio: 1;
   padding: 0;
@@ -2023,9 +2023,9 @@ footer .monogram {
 }
 .opening-tap-hint {
   display: block;
-  width: 20px;
-  height: 20px;
-  margin: 0 auto 0.65rem;
+  width: 26px;
+  height: 26px;
+  margin: 0 auto 0.9rem;
   color: var(--gold);
   animation: seal-tap 2.8s ease-in-out infinite;
 }
@@ -2036,7 +2036,7 @@ footer .monogram {
   gap: 6px;
   margin-top: 1rem;
   color: #806a4f;
-  font: 400 10px/1.6 var(--font-body);
+  font: 400 clamp(12px, 1.8vw, 14px)/1.7 var(--font-body);
   letter-spacing: 0.04em;
 }
 .opening-logo-glow {
@@ -2051,15 +2051,15 @@ footer .monogram {
   outline-offset: 12px;
 }
 .opening-instruction {
-  font: 600 11px/1.8 var(--font-body);
-  letter-spacing: 0.2em;
+  font: 600 clamp(13px, 1.9vw, 15px)/1.8 var(--font-body);
+  letter-spacing: 0.18em;
   text-transform: uppercase;
 }
 .opening-whisper {
-  margin-top: 0.4rem;
+  margin-top: 0.65rem;
   color: #7b6750;
-  font: 500 9px/1.8 var(--font-body);
-  letter-spacing: 0.16em;
+  font: 500 clamp(12px, 1.8vw, 13px)/1.8 var(--font-body);
+  letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 .opening-date-line {
@@ -2069,7 +2069,7 @@ footer .monogram {
   gap: 1rem;
   margin-top: clamp(1.25rem, 4vh, 2rem);
   color: #745b39;
-  font: 400 1.1rem/1.5 var(--font-display);
+  font: 400 clamp(1.5rem, 3.8vw, 1.875rem)/1.5 var(--font-display);
 }
 .opening-date-line span {
   width: 30px;
@@ -2077,10 +2077,10 @@ footer .monogram {
   background: var(--gold-light);
 }
 .opening-location {
-  margin-top: 0.4rem;
+  margin-top: 0.6rem;
   color: #7b6750;
-  font: 500 9px/1.8 var(--font-body);
-  letter-spacing: 0.22em;
+  font: 500 clamp(12px, 1.8vw, 13px)/1.8 var(--font-body);
+  letter-spacing: 0.2em;
   text-transform: uppercase;
 }
 .opening-sparkles {
@@ -2454,14 +2454,14 @@ footer {
     padding-block: 1rem;
   }
   .opening-kicker {
-    font-size: 10px;
-    letter-spacing: 0.15em;
+    font-size: 12px;
+    letter-spacing: 0.12em;
   }
   .opening-names {
-    margin-block: 2.25rem;
+    margin-block: 2.75rem;
   }
   .opening-logo-button {
-    width: clamp(72px, 18vw, 132px);
+    width: clamp(72px, 24vw, 160px);
   }
   .opening-date-line {
     margin-top: 2rem;
@@ -2469,7 +2469,7 @@ footer {
   .opening-whisper,
   .opening-location,
   .opening-song-note {
-    font-size: 11px;
+    font-size: 12px;
   }
 }
 
@@ -2566,7 +2566,7 @@ footer {
 .event-content {
   position: relative;
   inset: auto;
-  margin: 38% 14% 33%;
+  margin: 34% 14% 29%;
   gap: 0.2rem;
 }
 .event-schedule {
@@ -2670,7 +2670,7 @@ footer {
     min-height: 0;
   }
   .event-content {
-    margin: 38% 14% 33%;
+    margin: 34% 14% 29%;
   }
   .event-card h3 {
     font-size: clamp(25px, 8cqi, 42px);
@@ -2700,6 +2700,81 @@ footer {
   .family-section .translated-blessing {
     font-size: 1.1rem;
   }
+}
+
+/* Invitation message, prayer page and monogram-led celebration cards. */
+.hero-invitation {
+  width: min(100%, 520px);
+  display: grid;
+  gap: 0.5rem;
+  margin-top: 1.75rem;
+  padding: 1.25rem 0.5rem;
+  border-block: 1px solid var(--gold-light);
+  text-wrap: balance;
+}
+.hero-invitation-title {
+  color: var(--taupe);
+  font: 400 clamp(2.25rem, 6vw, 3rem)/1.2 var(--font-display);
+}
+.hero-invitation > p:last-child {
+  max-width: 42ch;
+  margin-inline: auto;
+  color: #756143;
+  font: italic 400 clamp(1.15rem, 2.8vw, 1.4rem)/1.6 var(--font-display);
+}
+.blessing-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1.25rem, 3vw, 2rem);
+  padding: clamp(3rem, 7vw, 5rem) clamp(1.25rem, 5vw, 3rem);
+  text-align: center;
+  border-block: 1px solid rgb(171 133 46 / 0.18);
+  background: radial-gradient(ellipse at center, #fffdf6, var(--ivory));
+}
+.blessing-monogram {
+  width: clamp(100px, 20vw, 132px);
+  height: auto;
+  aspect-ratio: 1;
+}
+.blessing-section .programme-invocation {
+  margin: 0;
+  font-size: clamp(1.35rem, 3.5vw, 1.9rem);
+  line-height: 1.9;
+}
+.blessing-section .blessing-mantra {
+  max-width: 760px;
+  font-size: clamp(1.4rem, 3.8vw, 2.1rem);
+  line-height: 1.95;
+}
+.blessing-section .translated-blessing {
+  margin: 0;
+  font-size: clamp(1.25rem, 3vw, 1.65rem);
+  line-height: 1.8;
+}
+.event-content .event-monogram {
+  width: clamp(44px, 12cqi, 72px);
+  height: auto;
+  aspect-ratio: 1;
+  flex: 0 0 auto;
+  margin: 0 auto 0.25rem;
+}
+.event-location-mobile {
+  gap: 0.75rem;
+}
+.venue-detail .button {
+  margin-top: 1.25rem;
+}
+.closing-copy .contact-numbers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+}
+.closing-copy .contact-separator {
+  display: none;
 }
 
 /* Consistent content rhythm and deliberate line breaks. */
@@ -3001,7 +3076,7 @@ footer {
     padding-inline: 1rem;
   }
   .opening-welcome {
-    padding-inline: 0.5rem;
+    padding-inline: 0;
   }
 }
 
@@ -3050,5 +3125,38 @@ footer {
   }
   .paper-grain {
     background-image: linear-gradient(115deg, rgb(255 255 255 / 0.12), transparent 60%);
+  }
+}
+
+@media (max-height: 500px) and (orientation: landscape) {
+  .opening-welcome {
+    padding-block: 0.25rem;
+  }
+  .opening-kicker {
+    font-size: 11px;
+  }
+  .opening-names {
+    margin-block: 0.75rem;
+  }
+  .opening-logo-button {
+    width: 64px;
+  }
+  .opening-instruction {
+    font-size: 12px;
+  }
+  .opening-whisper {
+    margin-top: 0.25rem;
+  }
+  .opening-song-note {
+    font-size: 11px;
+    line-height: 1.5;
+  }
+  .opening-date-line {
+    margin-top: 0.5rem;
+    font-size: 1.25rem;
+  }
+  .opening-location {
+    margin-top: 0.25rem;
+    font-size: 11px;
   }
 }

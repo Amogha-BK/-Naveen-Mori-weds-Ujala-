@@ -43,7 +43,6 @@ export const invitationConfig = {
   },
   dateLabel: "3 December 2026",
   locationLabel: "Faridabad",
-  programmeLabel: "2, 3 & 6 December 2026",
   weddingLabel: "Thursday, 3 December 2026 · Faridabad",
   countdownTarget: "2026-12-03T00:00:00+05:30",
   invocation: "॥ श्री गणेशाय नमः ॥",
@@ -58,8 +57,7 @@ export const invitationConfig = {
   blessingLine:
     "Please join us for the celebrations and bless the bride and groom with your gracious presence.",
   homeAddress,
-  nativeAddress: "Village Baliya, Post Janipur, District Gorakhpur, Uttar Pradesh",
-  hosts: "Mr. Bal Govind Yadav & Mr. Jai Kumar Yadav",
+  hosts: "Mr. Jai Kumar Yadav",
   rsvp: "Mr. Bal Govind Yadav",
   wishesFrom: ["Dharmendra Yadav", "Jai Kumar Yadav", "Mahendra Yadav"],
   welcomingFamily: [
@@ -87,7 +85,7 @@ export const invitationConfig = {
     ...receptionVenue,
     mapUrl: maps(`${receptionVenue.name}, ${receptionVenue.address}`),
   },
-  contacts: ["7897608033", "8588990124", "9783880485"],
+  contacts: ["8588990124", "9783880485"],
   optional: {
     travel: "",
     stay: "",

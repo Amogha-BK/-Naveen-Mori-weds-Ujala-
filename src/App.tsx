@@ -433,7 +433,6 @@ function EventLocation({ event, className }: { event: Celebration; className: st
   return (
     <div className={`event-location ${className}`}>
       <span className="event-venue">{event.venue}</span>
-      <span className="event-address">{event.address}</span>
       <div className="event-actions">
         <a
           className="button button-outline focus-ring"
@@ -461,9 +460,7 @@ function EventCard({ event, index }: { event: Celebration; index: number }) {
       <div className="event-portrait">
         <img src={event.image} alt="" loading="lazy" decoding="async" width={1024} height={1536} />
         <div className="event-content">
-          <span className="event-number">
-            Krishan &amp; Pooja · Celebration {String(index + 1).padStart(2, "0")}
-          </span>
+          <Monogram className="event-monogram" />
           <h3>{event.shortName}</h3>
           <p className="event-subtitle">{event.title.split(" — ")[1]}</p>
           <div className="event-details">
@@ -805,8 +802,8 @@ export default function App() {
         {showScrollCue && (
           <a
             className="scroll-cue scroll-cue-highlight focus-ring"
-            href="#invitation"
-            aria-label="Scroll down to the invitation details"
+            href="#blessings"
+            aria-label="Scroll down to our blessings and invitation"
             onClick={() => setShowScrollCue(false)}
           >
             <span>Scroll down</span>
@@ -831,15 +828,38 @@ export default function App() {
                   {config.couple.secondParents && <p>{config.couple.secondParents}</p>}
                 </div>
               )}
-              <div className="hero-date">
-                <time dateTime={config.countdownTarget.split("T")[0]}>
-                  Thursday, {config.dateLabel}
-                </time>
-                <span>{config.locationLabel}</span>
+              <div className="hero-invitation">
+                <p className="hero-invitation-title">You’re Invited</p>
+                <p>
+                  With joyful hearts, we invite you to celebrate our wedding and bless our new
+                  beginning.
+                </p>
               </div>
             </div>
             <div className="hero-artwork" aria-hidden="true">
               <img src={config.artwork} alt="" loading="lazy" decoding="async" />
+            </div>
+          </section>
+
+          <section
+            className="blessing-section"
+            id="blessings"
+            aria-label="A prayer for our new beginning"
+          >
+            <Monogram className="blessing-monogram" />
+            <p className="programme-invocation" lang="sa">
+              {config.invocation}
+            </p>
+            <p className="programme-invocation blessing-mantra" lang="sa">
+              {config.ganeshMantra[0]}
+              <br />
+              {config.ganeshMantra[1]}
+            </p>
+            <p className="translated-blessing">{config.programmeBlessing}</p>
+            <div className="botanical-rule" aria-hidden="true">
+              <i />
+              <Flower2 strokeWidth={1} />
+              <i />
             </div>
           </section>
 
@@ -896,25 +916,8 @@ export default function App() {
             </motion.div>
           </section>
 
-          <section className="countdown-section">
-            <SectionHeading eyebrow="Until we celebrate">Our forever begins in</SectionHeading>
-            <Countdown />
-          </section>
-
           <section className="celebrations-section" id="celebrations">
-            <Monogram className="celebrations-monogram" />
-            <p className="programme-invocation" lang="sa">
-              {config.invocation}
-            </p>
-            <p className="programme-invocation" lang="sa">
-              {config.ganeshMantra[0]}
-              <br />
-              {config.ganeshMantra[1]}
-            </p>
-            <p className="translated-blessing">{config.programmeBlessing}</p>
-            <SectionHeading eyebrow={config.programmeLabel}>
-              Auspicious wedding celebrations
-            </SectionHeading>
+            <SectionHeading>Join our celebrations</SectionHeading>
             <div className="events">
               {config.celebrations.map((event, index) => (
                 <EventCard key={event.id} event={event} index={index} />
@@ -936,7 +939,6 @@ export default function App() {
                     <MapPin className="venue-pin" />
                     <p className="eyebrow">{venue.label}</p>
                     <h3>{venue.name}</h3>
-                    <p>{venue.address}</p>
                     <a
                       className="button button-solid focus-ring"
                       href={venue.mapUrl}
@@ -969,20 +971,17 @@ export default function App() {
             </section>
           )}
 
+          <section className="countdown-section" id="countdown">
+            <SectionHeading eyebrow="Until we celebrate">Our forever begins in</SectionHeading>
+            <Countdown />
+          </section>
+
           <footer id="contact">
             <div className="closing-copy">
               <Monogram />
               <span>From:</span>
-              <p className="closing-message">
-                {config.hosts.split(" & ").map((name, index) => (
-                  <span className="host-name" key={name}>
-                    {index > 0 && <span className="host-joiner">&amp; </span>}
-                    {name}
-                  </span>
-                ))}
-              </p>
+              <p className="closing-message">{config.hosts}</p>
               <p>{config.homeAddress}</p>
-              <p className="native-address">{config.nativeAddress}</p>
               <div className="family-contacts">
                 <div className="contact-numbers" aria-label="Family contact numbers">
                   <span className="contact-label">Contact:</span>
