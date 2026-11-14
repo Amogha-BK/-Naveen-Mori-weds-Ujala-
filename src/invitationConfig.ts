@@ -1,4 +1,4 @@
-﻿export type Celebration = {
+export type Celebration = {
   id: "pre-wedding" | "wedding" | "reception";
   shortName: string;
   title: string;
@@ -32,7 +32,7 @@ const brideParents = "Daughter of Mrs. Madhu & Mr. Mukesh Kumar Bansal";
 
 export const invitationConfig = {
   couple: {
-    first: "Kishan",
+    first: "Krishan",
     second: "Pooja",
     firstParents: groomParents,
     secondParents: brideParents,
@@ -58,7 +58,7 @@ export const invitationConfig = {
     "O Lord Ganesha, of the curved trunk and mighty form, radiant as a million suns, please remove all obstacles from our endeavours, always.",
   memorialLine: "With the infinite grace of the Almighty",
   invitationLine:
-    "Mr. Bal Govind Yadav cordially invites you to celebrate the wedding of his nephew’s beloved son, Kishan, with Pooja.",
+    "Mr. Bal Govind Yadav cordially invites you to celebrate the wedding of his nephew’s beloved son, Krishan, with Pooja.",
   blessingLine:
     "Please join us for the celebrations and bless the bride and groom with your gracious presence.",
   homeAddress,
@@ -110,14 +110,14 @@ export const invitationConfig = {
         { name: "Haldi (turmeric ceremony)", time: "11:00 a.m." },
         { name: "Mehendi (henna ceremony)", time: "4:00 p.m." },
       ],
-      venue: "",
-      address: "",
+      venue: receptionVenue.name,
+      address: receptionVenue.address,
       supportingLine: "A golden glow, henna-filled hands and the warmth of family.",
       start: "2026-12-02T11:00:00+05:30",
-      calendarTitle: "Kishan & Pooja · Pre-wedding Celebrations",
+      calendarTitle: "Krishan & Pooja · Pre-wedding Celebrations",
       image: "/assets/kishan-pooja-turmeric-henna-arch-v3.png",
       scene: "lanterns",
-      mapUrl: "",
+      mapUrl: maps(`${receptionVenue.name}, ${receptionVenue.address}`),
     },
     {
       id: "wedding",
@@ -133,7 +133,7 @@ export const invitationConfig = {
       address: weddingVenue.address,
       supportingLine: "Sacred vows, two hearts and a lifetime of togetherness.",
       start: "2026-12-03T17:00:00+05:30",
-      calendarTitle: "Kishan & Pooja · Wedding Celebrations",
+      calendarTitle: "Krishan & Pooja · Wedding Celebrations",
       image: "/assets/kishan-pooja-wedding-arch-v3.png",
       scene: "fire",
       mapUrl: maps(`${weddingVenue.name}, ${weddingVenue.address}`),
@@ -149,7 +149,7 @@ export const invitationConfig = {
       address: receptionVenue.address,
       supportingLine: "Join us for an evening of love, laughter and celebration.",
       start: "2026-12-06T19:00:00+05:30",
-      calendarTitle: "Kishan & Pooja · Reception",
+      calendarTitle: "Krishan & Pooja · Reception",
       image: "/assets/kishan-pooja-reception-arch-v3.png",
       scene: "candlelight",
       mapUrl: maps(`${receptionVenue.name}, ${receptionVenue.address}`),

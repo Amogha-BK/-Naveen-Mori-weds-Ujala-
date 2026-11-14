@@ -41,7 +41,7 @@ function Monogram({ className = "" }: { className?: string }) {
     <img
       className={`monogram ${className}`}
       src={config.monogram}
-      alt="K and P wedding monogram for Kishan and Pooja"
+      alt="K and P wedding monogram for Krishan and Pooja"
     />
   );
 }
@@ -64,7 +64,7 @@ function InvitationOpening({ onOpen }: { onOpen: () => void }) {
   return (
     <motion.section
       className="invitation-opening"
-      aria-label="Open Kishan and Pooja’s wedding invitation"
+      aria-label="Open Krishan and Pooja’s wedding invitation"
       initial={{ opacity: 1 }}
       exit={{ opacity: reducedMotion ? 0 : [1, 1, 0] }}
       transition={{ duration: reducedMotion ? 0.15 : 1.65, times: [0, 0.9, 1], ease: "easeInOut" }}
@@ -136,7 +136,7 @@ function InvitationOpening({ onOpen }: { onOpen: () => void }) {
             onClick={onOpen}
             disabled={!isPresent}
             autoFocus
-            aria-label="Open Kishan and Pooja’s wedding invitation"
+            aria-label="Open Krishan and Pooja’s wedding invitation"
             whileHover={reducedMotion ? undefined : { scale: 1.09, rotate: -3 }}
             whileTap={reducedMotion ? undefined : { scale: 0.9, rotate: 2 }}
             exit={
@@ -458,7 +458,7 @@ function EventCard({ event, index }: { event: Celebration; index: number }) {
         <img src={event.image} alt="" loading="lazy" decoding="async" width={1024} height={1536} />
         <div className="event-content">
           <span className="event-number">
-            Kishan &amp; Pooja · Celebration {String(index + 1).padStart(2, "0")}
+            Krishan &amp; Pooja · Celebration {String(index + 1).padStart(2, "0")}
           </span>
           <h3>{event.shortName}</h3>
           <p className="event-subtitle">{event.title.split(" — ")[1]}</p>
@@ -667,7 +667,7 @@ function RSVP() {
         </AnimatePresence>
         <label className="field">
           <span>
-            Message for Kishan &amp; Pooja <em>Optional</em>
+            Message for Krishan &amp; Pooja <em>Optional</em>
           </span>
           <textarea
             rows={4}
