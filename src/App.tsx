@@ -186,12 +186,6 @@ function InvitationOpening({ onOpen }: { onOpen: () => void }) {
           <p className="opening-song-note">
             <Music size={11} aria-hidden="true" /> Opens with music
           </p>
-          <div className="opening-date-line">
-            <span />
-            {config.dateLabel}
-            <span />
-          </div>
-          <p className="opening-location">{config.locationLabel}</p>
         </motion.div>
       </div>
     </motion.section>

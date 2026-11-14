@@ -99,7 +99,7 @@ export const invitationConfig = {
       shortName: "Haldi & Mehndi",
       title: "Pre-wedding — A Joyful Beginning",
       dateLabel: "Wednesday, 2 December 2026",
-      timeLabel: "11:00 a.m. & 4:00 p.m.",
+      timeLabel: "11:00 am & 4:00 pm",
       schedule: [
         { name: "Haldi ceremony", time: "11:00 am" },
         { name: "Mehndi ceremony", time: "4:00 pm" },
