@@ -23,8 +23,7 @@ const weddingVenue = {
 };
 const receptionVenue = {
   name: "Khushi Garden",
-  address:
-    "Sajipur Road, Jeevan Nagar, Sector 87, Neharpar, Faridabad, Haryana – 121014",
+  address: "Sajipur Road, Jeevan Nagar, Sector 87, Neharpar, Faridabad, Haryana – 121014",
 };
 const homeAddress = "House No. 37, Lakhpat Colony, Meethapur Extension, New Delhi – 110044";
 const groomParents = "Son of Mrs. Sushila Yadav & Mr. Jaykumar Yadav";
@@ -48,10 +47,7 @@ export const invitationConfig = {
   weddingLabel: "Thursday, 3 December 2026 · Faridabad",
   countdownTarget: "2026-12-03T00:00:00+05:30",
   invocation: "॥ श्री गणेशाय नमः ॥",
-  ganeshMantra: [
-    "ॐ वक्रतुण्ड महाकाय सूर्यकोटि समप्रभः ।",
-    "निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा ॥",
-  ],
+  ganeshMantra: ["ॐ वक्रतुण्ड महाकाय सूर्यकोटि समप्रभः ।", "निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा ॥"],
   openingBlessing:
     "May Lord Vishnu, the bearer of Garuda’s banner and the lotus-eyed Lord, bless this union with happiness and good fortune.",
   programmeBlessing:

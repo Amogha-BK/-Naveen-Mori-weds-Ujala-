@@ -1777,8 +1777,8 @@ footer .monogram {
   background: radial-gradient(ellipse at center, #fffaf0, var(--ivory));
 }
 .family-section p {
-  font-size: clamp(1.5rem, 5vw, 2.35rem);
-  line-height: 1.45;
+  font-size: clamp(1.3rem, 3.5vw, 1.8rem);
+  line-height: 1.6;
 }
 .section-heading h2 {
   font-weight: 400;
@@ -2222,6 +2222,7 @@ html {
 }
 .invitation-opening {
   min-height: 0;
+  align-items: safe center;
   height: 100%;
   height: 100dvh;
   padding-left: max(1rem, env(safe-area-inset-left, 0px));
@@ -2857,6 +2858,8 @@ footer {
 }
 .hero h1 {
   padding-block: 0.15em;
+  font-family: var(--font-display);
+  gap: clamp(0.4rem, 1.5vw, 1rem);
 }
 .family-section,
 .countdown-section,
@@ -2995,6 +2998,20 @@ footer {
   }
   .opening-date-line {
     margin-top: 1rem;
+  }
+  .opening-logo-button {
+    margin-block: 1.5rem;
+  }
+}
+
+@media (min-width: 1100px) {
+  .invitation,
+  .site-nav {
+    width: min(100%, 1040px);
+  }
+  .venue-detail h3 {
+    min-height: 1.3em;
+    line-height: 1.3;
   }
 }
 
