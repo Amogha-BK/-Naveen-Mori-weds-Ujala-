@@ -33,7 +33,6 @@ const indiaClock = new Intl.DateTimeFormat("en-GB", {
 const navItems = [
   ["Our Wedding", "our-wedding"],
   ["Celebrations", "celebrations"],
-  ["Venue", "venue"],
   ["Contact", "contact"],
 ] as const;
 
@@ -893,45 +892,7 @@ export default function App() {
               <p className="ganesh-invocation family-invocation">{config.invocation}</p>
               <p className="translated-blessing">{config.openingBlessing}</p>
               <p className="family-memory">{config.memorialLine}</p>
-              <p>{config.invitationLine}</p>
-              <div className="invitation-families" aria-label="The couple and their families">
-                <div>
-                  <h2>{config.couple.first}</h2>
-                  <p>{config.couple.groomParents}</p>
-                  <p>{config.couple.groomGrandparents}</p>
-                  <p className="family-address">{config.couple.groomAddress}</p>
-                </div>
-                <span className="family-weds">weds</span>
-                <div>
-                  <h2>{config.couple.second}</h2>
-                  <p>{config.couple.brideParents}</p>
-                  <p className="family-address">{config.couple.brideAddress}</p>
-                </div>
-              </div>
               <p className="family-blessing">{config.blessingLine}</p>
-              <div className="invitation-regards">
-                <div>
-                  <h3>With a warm invitation from</h3>
-                  <p>{config.rsvp}</p>
-                </div>
-                <div>
-                  <h3>With best wishes from</h3>
-                  <ul className="family-name-list">
-                    {config.wishesFrom.map((name) => (
-                      <li key={name}>{name}</li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-              <div className="welcoming-family">
-                <h3>Eagerly awaiting your presence</h3>
-                <ul className="family-name-list">
-                  {config.welcomingFamily.map((name) => (
-                    <li key={name}>{name}</li>
-                  ))}
-                </ul>
-                <p className="whole-family">And the entire Yadav family</p>
-              </div>
               <Monogram />
             </motion.div>
           </section>
@@ -943,41 +904,6 @@ export default function App() {
                 <EventCard key={event.id} event={event} index={index} />
               ))}
             </div>
-          </section>
-
-          <section className="venue-section" id="venue">
-            <div className="venue-content">
-              <SectionHeading eyebrow="Where we gather">
-                Two places, one beautiful celebration
-              </SectionHeading>
-              <div className="venue-grid">
-                {[
-                  { ...config.venue, label: "Wedding · 3 December" },
-                  { ...config.reception, label: "Reception · 6 December" },
-                ].map((venue) => (
-                  <div className="venue-detail" key={venue.name}>
-                    <MapPin className="venue-pin" />
-                    <p className="eyebrow">{venue.label}</p>
-                    <h3>{venue.name}</h3>
-                    <a
-                      className="button button-solid focus-ring"
-                      href={venue.mapUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <MapPin /> Open in Google Maps
-                    </a>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
-
-          <section className="children-welcome">
-            <Flower2 aria-hidden="true" strokeWidth={1} />
-            <p className="eyebrow">A little invitation, with lots of love</p>
-            <blockquote>{config.childrenMessage}</blockquote>
-            <p className="children-signature">{config.children}</p>
           </section>
 
           {optionalDetails.length > 0 && (
