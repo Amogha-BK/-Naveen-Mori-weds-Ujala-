@@ -24,7 +24,7 @@ const weddingVenue = {
 const receptionVenue = {
   name: "Khushi Garden",
   address:
-    "Wazirpur Road, Jeevan Nagar, Sector 87, Neharpar, near Amrita Hospital, Faridabad, Haryana – 121014",
+    "Sajipur Road, Jeevan Nagar, Sector 87, Neharpar, Faridabad, Haryana – 121014",
 };
 const homeAddress = "House No. 37, Lakhpat Colony, Meethapur Extension, New Delhi – 110044";
 const groomParents = "Son of Mrs. Sushila Yadav & Mr. Jaykumar Yadav";
@@ -47,7 +47,11 @@ export const invitationConfig = {
   programmeLabel: "2, 3 & 6 December 2026",
   weddingLabel: "Thursday, 3 December 2026 · Faridabad",
   countdownTarget: "2026-12-03T00:00:00+05:30",
-  invocation: "With the blessings of Lord Ganesha",
+  invocation: "॥ श्री गणेशाय नमः ॥",
+  ganeshMantra: [
+    "ॐ वक्रतुण्ड महाकाय सूर्यकोटि समप्रभः ।",
+    "निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा ॥",
+  ],
   openingBlessing:
     "May Lord Vishnu, the bearer of Garuda’s banner and the lotus-eyed Lord, bless this union with happiness and good fortune.",
   programmeBlessing:
@@ -77,9 +81,9 @@ export const invitationConfig = {
     "Akshit",
     "Kiyansh",
   ],
-  children: "Aditya & Vihaan",
+  children: "Aditya & Vidan",
   childrenMessage:
-    "Turmeric, sandalwood and the bonds of family — we warmly welcome you to our uncle’s wedding!",
+    "With turmeric, sandalwood and the bonds of family, we warmly welcome you to our uncle’s wedding!",
   monogram: "/assets/kishan-pooja-monogram-v2.png",
   artwork: "/assets/kishan-pooja-garden-v2.png",
   venue: { ...weddingVenue, mapUrl: maps(`${weddingVenue.name}, ${weddingVenue.address}`) },
@@ -103,8 +107,8 @@ export const invitationConfig = {
       dateLabel: "Wednesday, 2 December 2026",
       timeLabel: "11:00 a.m. & 4:00 p.m.",
       schedule: [
-        { name: "Turmeric ceremony", time: "11:00 a.m." },
-        { name: "Henna ceremony", time: "4:00 p.m." },
+        { name: "Haldi (turmeric ceremony)", time: "11:00 a.m." },
+        { name: "Mehendi (henna ceremony)", time: "4:00 p.m." },
       ],
       venue: "",
       address: "",

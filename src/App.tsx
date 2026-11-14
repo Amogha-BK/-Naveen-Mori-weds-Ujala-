@@ -875,10 +875,15 @@ export default function App() {
 
           <section className="celebrations-section" id="celebrations">
             <Monogram className="celebrations-monogram" />
-            <p className="programme-invocation">{config.invocation}</p>
+            <p className="programme-invocation" lang="sa">{config.invocation}</p>
+            <p className="programme-invocation" lang="sa">
+              {config.ganeshMantra[0]}
+              <br />
+              {config.ganeshMantra[1]}
+            </p>
             <p className="translated-blessing">{config.programmeBlessing}</p>
             <SectionHeading eyebrow={config.programmeLabel}>
-              Our wedding celebrations
+              Auspicious wedding celebrations
             </SectionHeading>
             <div className="events">
               {config.celebrations.map((event, index) => (
