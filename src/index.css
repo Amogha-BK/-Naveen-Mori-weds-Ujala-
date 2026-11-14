@@ -689,7 +689,7 @@ textarea:focus-visible {
   letter-spacing: -0.025em;
   white-space: nowrap;
 }
-.hero h1 span {
+.hero h1 .hero-ampersand {
   margin: 0;
   color: var(--gold);
   font-family: var(--font-script);
@@ -794,7 +794,7 @@ textarea:focus-visible {
   background: var(--paper);
 }
 .family-section > div:not(.edge-flower) {
-  width: min(100%, 680px);
+  width: min(100%, 820px);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -808,8 +808,8 @@ textarea:focus-visible {
 .family-section p {
   margin: 1rem 0 1.8rem;
   font-family: var(--font-display);
-  font-size: clamp(1.75rem, 5.5vw, 2.75rem);
-  line-height: 1.3;
+  font-size: clamp(1.3rem, 3.5vw, 1.8rem);
+  line-height: 1.6;
   text-wrap: balance;
 }
 .family-section .monogram {
@@ -1791,7 +1791,7 @@ footer .monogram {
   line-height: 1.7;
 }
 .venue-section::before {
-  background-image: url("/assets/kishan-pooja-garden-v2.png");
+  background-image: url("/assets/kishan-pooja-garden-v2.jpg");
   opacity: 0.18;
   filter: none;
 }
@@ -1873,7 +1873,7 @@ footer .monogram {
   inset: 0;
   z-index: -2;
   opacity: 0.16;
-  background: url("/assets/kishan-pooja-wedding-arch-v3.png") center / cover no-repeat;
+  background: url("/assets/kishan-pooja-wedding-arch-v3.jpg") center / cover no-repeat;
   mix-blend-mode: multiply;
   pointer-events: none;
 }
@@ -1888,9 +1888,10 @@ footer .monogram {
 }
 .opening-welcome {
   position: relative;
-  width: min(100%, 690px);
-  padding: 2rem 0;
+  width: min(100%, 720px);
+  padding: 2rem 1rem;
   text-align: center;
+  margin-block: auto;
 }
 .opening-flower {
   width: 30px;
@@ -1908,27 +1909,28 @@ footer .monogram {
 .opening-names {
   display: flex;
   justify-content: center;
-  align-items: center;
-  gap: clamp(0.35rem, 2vw, 1.3rem);
-  margin: 1.5rem 0 1.75rem;
-  font: 400 clamp(1.75rem, 6.8vw, 4.5rem)/1.1 var(--font-display);
-  letter-spacing: -0.035em;
+  align-items: baseline;
+  gap: 0.22em;
+  margin: clamp(1.25rem, 4vh, 2rem) 0 0;
+  font: 400 clamp(2.25rem, 7vw, 4.5rem)/1.2 var(--font-display);
+  letter-spacing: -0.02em;
 }
 .opening-names > span {
-  flex: 1;
+  flex: 0 0 auto;
+  white-space: nowrap;
 }
-.opening-names > span:first-child {
-  text-align: right;
-}
-.opening-names > span:last-child {
-  text-align: left;
+.opening-names .opening-ampersand {
+  color: var(--gold);
+  font-family: var(--font-script);
+  font-size: 0.65em;
 }
 .opening-logo-button {
   position: relative;
   display: grid;
   place-items: center;
   flex: 0 0 auto;
-  width: clamp(88px, 20vw, 148px);
+  width: clamp(112px, 22vw, 148px);
+  margin: 2.5rem auto 2.25rem;
   aspect-ratio: 1;
   padding: 0;
   border: 0;
@@ -2031,7 +2033,7 @@ footer .monogram {
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  margin-top: 3rem;
+  margin-top: clamp(1.25rem, 4vh, 2rem);
   color: #745b39;
   font: 400 1.1rem/1.5 var(--font-display);
 }
@@ -2269,7 +2271,7 @@ footer {
     padding-right: max(1rem, env(safe-area-inset-right, 0px));
   }
   .hero h1 {
-    font-size: clamp(2.6rem, 11.5vw, 4.3rem);
+    font-size: clamp(2rem, 10vw, 3.75rem);
     gap: 0.35rem;
   }
   .hero-monogram {
@@ -2421,12 +2423,13 @@ footer {
     letter-spacing: 0.15em;
   }
   .opening-names {
-    gap: 0.35rem;
-    font-size: clamp(1.75rem, 7.5vw, 2.75rem);
-    margin-block: 2rem;
+    gap: 0.22em;
+    font-size: clamp(2rem, 9vw, 3.25rem);
+    margin-block: 1.25rem 0;
   }
   .opening-logo-button {
-    width: clamp(88px, 23vw, 120px);
+    width: clamp(104px, 28vw, 132px);
+    margin-block: 2rem;
   }
   .opening-date-line {
     margin-top: 2rem;
@@ -2457,11 +2460,12 @@ footer {
     padding-block: 0.5rem;
   }
   .opening-names {
-    margin-block: 0.75rem;
-    font-size: 2.5rem;
+    margin-block: 0.5rem 0;
+    font-size: 2rem;
   }
   .opening-logo-button {
-    width: 80px;
+    width: 72px;
+    margin-block: 1.25rem;
   }
   .opening-date-line {
     margin-top: 0.75rem;
@@ -2584,6 +2588,7 @@ footer {
   grid-template-columns: 1fr 1fr;
   gap: 3rem;
   width: 100%;
+  margin-top: clamp(2rem, 5vw, 3rem);
 }
 .venue-detail {
   display: flex;
@@ -2787,7 +2792,7 @@ footer {
 }
 .host-name {
   display: inline-block;
-  white-space: nowrap;
+  text-wrap: balance;
 }
 .closing-copy .native-address {
   margin-top: 0.25rem;
@@ -2818,7 +2823,7 @@ footer {
     margin-top: 1.25rem;
   }
   .opening-date-line {
-    text-wrap: nowrap;
+    text-wrap: balance;
   }
   .event-location-mobile {
     padding-inline: 1.25rem;
@@ -2840,5 +2845,167 @@ footer {
   }
   .closing-copy .closing-message {
     row-gap: 0.15rem;
+  }
+}
+
+/* Shared spacing keeps the same stationery rhythm across screen sizes. */
+.hero h1 .hero-name {
+  color: var(--taupe);
+  font: inherit;
+  letter-spacing: inherit;
+  line-height: 1.2;
+}
+.hero h1 {
+  padding-block: 0.15em;
+}
+.family-section,
+.countdown-section,
+.celebrations-section,
+.venue-section {
+  padding-block: clamp(3.5rem, 7vw, 6rem);
+  padding-inline: max(clamp(1rem, 4vw, 3rem), env(safe-area-inset-left, 0px))
+    max(clamp(1rem, 4vw, 3rem), env(safe-area-inset-right, 0px));
+}
+.section-heading {
+  max-width: 760px;
+  margin-inline: auto;
+  gap: 0.4rem;
+}
+.section-heading h2 {
+  line-height: 1.2;
+}
+.invitation-families {
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  gap: clamp(1rem, 3vw, 2rem);
+}
+.invitation-families h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2.75rem, 6vw, 3.75rem);
+  line-height: 1.25;
+  margin-bottom: 1rem;
+}
+.family-section .invitation-families p {
+  margin-block: 0.65rem;
+  line-height: 1.8;
+}
+.family-weds {
+  padding-top: 1.1rem;
+}
+.invitation-regards {
+  gap: 2rem;
+  padding-block: 2rem;
+  margin-block: 1.5rem 0;
+}
+.family-name-list {
+  row-gap: 0.65rem;
+}
+.programme-invocation {
+  max-width: 640px;
+  line-height: 1.9;
+  text-wrap: balance;
+}
+.countdown {
+  gap: clamp(0.4rem, 1.5vw, 1rem);
+}
+.event-content {
+  gap: clamp(0.35rem, 1cqi, 0.65rem);
+  text-align: center;
+}
+.event-number {
+  text-wrap: balance;
+  line-height: 1.8;
+}
+.event-schedule {
+  width: 100%;
+}
+.event-schedule > div {
+  gap: 0.35rem;
+}
+.event-location-mobile {
+  padding-top: clamp(1.5rem, 4vw, 2rem);
+}
+.venue-detail {
+  min-width: 0;
+}
+.venue-detail .button {
+  width: min(100%, 320px);
+}
+.closing-copy .contact-numbers {
+  justify-content: center;
+  row-gap: 0.5rem;
+}
+.closing-copy > p {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 700px) {
+  .invitation-families,
+  .invitation-regards,
+  .venue-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .invitation-families {
+    gap: 1.25rem;
+  }
+  .family-weds {
+    padding: 0;
+  }
+  .invitation-regards {
+    gap: 1.75rem;
+  }
+  .venue-detail + .venue-detail {
+    padding-top: 2rem;
+    border-top: 1px solid var(--gold-light);
+  }
+  .event-details {
+    font-size: clamp(0.75rem, 3.2cqi, 0.875rem);
+    line-height: 1.7;
+  }
+  .event-card h3 {
+    font-size: clamp(1.7rem, 8cqi, 2.75rem);
+    line-height: 1.15;
+  }
+  .event-location-mobile {
+    padding-inline: 1rem;
+  }
+  .opening-welcome {
+    padding-inline: 0.5rem;
+  }
+}
+
+@media (max-width: 359px) {
+  .opening-kicker {
+    padding-inline: 0;
+    letter-spacing: 0.1em;
+  }
+  .hero h1 {
+    font-size: 9.5vw;
+  }
+  .event-content {
+    margin-inline: 11%;
+  }
+}
+
+@media (max-height: 700px) {
+  .opening-welcome {
+    padding-block: 1rem;
+  }
+  .opening-flower {
+    margin-bottom: 0.75rem;
+  }
+  .opening-date-line {
+    margin-top: 1rem;
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .site-nav,
+  .icon-button {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background-color: rgb(250 246 238 / 0.97);
+  }
+  .paper-grain {
+    background-image: linear-gradient(115deg, rgb(255 255 255 / 0.12), transparent 60%);
   }
 }
