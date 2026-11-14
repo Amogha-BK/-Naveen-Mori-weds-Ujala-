@@ -764,13 +764,6 @@ export default function App() {
   useEffect(() => {
     if (!revealed) return;
     setShowScrollCue(true);
-    const dismissAfterScroll = () => {
-      if (window.scrollY <= 80) return;
-      setShowScrollCue(false);
-      window.removeEventListener("scroll", dismissAfterScroll);
-    };
-    window.addEventListener("scroll", dismissAfterScroll, { passive: true });
-    return () => window.removeEventListener("scroll", dismissAfterScroll);
   }, [revealed]);
 
   useEffect(() => {
@@ -853,19 +846,19 @@ export default function App() {
                   With joyful hearts, we invite you to celebrate our wedding and bless our new
                   beginning.
                 </p>
-              </div>
-              <div className="scroll-cue-slot">
-                {showScrollCue && (
-                  <a
-                    className="scroll-cue scroll-cue-highlight focus-ring"
-                    href="#invitation"
-                    aria-label="Scroll down to the invitation details"
-                    onClick={() => setShowScrollCue(false)}
-                  >
-                    <span>Scroll down</span>
-                    <ChevronsDown aria-hidden="true" />
-                  </a>
-                )}
+                <div className="scroll-cue-slot">
+                  {showScrollCue && (
+                    <a
+                      className="scroll-cue scroll-cue-highlight focus-ring"
+                      href="#invitation"
+                      aria-label="Scroll down to the invitation details"
+                      onClick={() => setShowScrollCue(false)}
+                    >
+                      <span>Scroll down</span>
+                      <ChevronsDown aria-hidden="true" />
+                    </a>
+                  )}
+                </div>
               </div>
             </div>
             <div className="hero-artwork" aria-hidden="true">

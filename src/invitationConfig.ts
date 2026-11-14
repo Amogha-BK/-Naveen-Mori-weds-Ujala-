@@ -111,7 +111,7 @@ export const invitationConfig = {
       calendarTitle: "Krishan & Pooja · Pre-wedding Celebrations",
       image: "/assets/kishan-pooja-turmeric-henna-arch-v3.jpg",
       scene: "lanterns",
-      mapUrl: maps(`${receptionVenue.name}, ${receptionVenue.address}`),
+      mapUrl: "https://maps.app.goo.gl/JfQ5aTCrTy4dEvK89?g_st=awb",
     },
     {
       id: "wedding",
