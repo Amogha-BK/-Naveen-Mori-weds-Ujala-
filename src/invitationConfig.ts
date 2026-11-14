@@ -98,13 +98,13 @@ export const invitationConfig = {
   celebrations: [
     {
       id: "pre-wedding",
-      shortName: "Turmeric & Henna",
+      shortName: "Haldi Mehndi",
       title: "Pre-wedding — A Joyful Beginning",
       dateLabel: "Wednesday, 2 December 2026",
       timeLabel: "11:00 a.m. & 4:00 p.m.",
       schedule: [
         { name: "Haldi (turmeric ceremony)", time: "11:00 a.m." },
-        { name: "Mehendi (henna ceremony)", time: "4:00 p.m." },
+        { name: "Mehndi (henna ceremony)", time: "4:00 p.m." },
       ],
       venue: receptionVenue.name,
       address: receptionVenue.address,

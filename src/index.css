@@ -1907,30 +1907,31 @@ footer .monogram {
   text-wrap: balance;
 }
 .opening-names {
-  display: flex;
-  justify-content: center;
-  align-items: baseline;
-  gap: 0.22em;
-  margin: clamp(1.25rem, 4vh, 2rem) 0 0;
-  font: 400 clamp(2.25rem, 7vw, 4.5rem)/1.2 var(--font-display);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(22px, 3.8vw, 32px);
+  margin: clamp(2.25rem, 5vh, 3rem) 0;
+  font: 400 clamp(21px, 5.5vw, 52px)/1.2 var(--font-display);
   letter-spacing: -0.02em;
 }
 .opening-names > span {
-  flex: 0 0 auto;
+  min-width: 0;
   white-space: nowrap;
 }
-.opening-names .opening-ampersand {
-  color: var(--gold);
-  font-family: var(--font-script);
-  font-size: 0.65em;
+.opening-names > span:first-child {
+  justify-self: end;
+}
+.opening-names > span:last-child {
+  justify-self: start;
 }
 .opening-logo-button {
   position: relative;
   display: grid;
   place-items: center;
   flex: 0 0 auto;
-  width: clamp(112px, 22vw, 148px);
-  margin: 2.5rem auto 2.25rem;
+  width: clamp(72px, 18vw, 132px);
+  margin: 0;
   aspect-ratio: 1;
   padding: 0;
   border: 0;
@@ -1957,7 +1958,7 @@ footer .monogram {
 }
 .opening-logo-orbit {
   position: absolute;
-  inset: -17px;
+  inset: -12px;
   border: 1px dashed rgb(171 133 46 / 0.4);
   border-radius: 50%;
   animation: seal-orbit 35s linear infinite;
@@ -2424,13 +2425,10 @@ footer {
     letter-spacing: 0.15em;
   }
   .opening-names {
-    gap: 0.22em;
-    font-size: clamp(2rem, 9vw, 3.25rem);
-    margin-block: 1.25rem 0;
+    margin-block: 2.25rem;
   }
   .opening-logo-button {
-    width: clamp(104px, 28vw, 132px);
-    margin-block: 2rem;
+    width: clamp(72px, 18vw, 132px);
   }
   .opening-date-line {
     margin-top: 2rem;
@@ -2461,12 +2459,10 @@ footer {
     padding-block: 0.5rem;
   }
   .opening-names {
-    margin-block: 0.5rem 0;
-    font-size: 2rem;
+    margin-block: 1.5rem;
   }
   .opening-logo-button {
     width: 72px;
-    margin-block: 1.25rem;
   }
   .opening-date-line {
     margin-top: 0.75rem;
@@ -2998,9 +2994,6 @@ footer {
   }
   .opening-date-line {
     margin-top: 1rem;
-  }
-  .opening-logo-button {
-    margin-block: 1.5rem;
   }
 }
 

@@ -123,14 +123,54 @@ function InvitationOpening({ onOpen }: { onOpen: () => void }) {
           <Flower2 className="opening-flower" strokeWidth={1} aria-hidden="true" />
           <p className="opening-kicker">A celebration of love &amp; togetherness</p>
         </motion.div>
-        <h1 className="opening-names">
+        <h1
+          className="opening-names"
+          aria-label={`${config.couple.first} and ${config.couple.second}`}
+        >
           <motion.span
             exit={{ opacity: 0, x: reducedMotion ? 0 : -45 }}
             transition={{ duration: 0.45 }}
           >
             {config.couple.first}
           </motion.span>
-          <span className="opening-ampersand">&amp;</span>
+          <motion.button
+            type="button"
+            className="opening-logo-button focus-ring"
+            onClick={onOpen}
+            disabled={!isPresent}
+            autoFocus
+            aria-label="Open Krishan and Pooja’s wedding invitation"
+            whileHover={reducedMotion ? undefined : { scale: 1.09, rotate: -3 }}
+            whileTap={reducedMotion ? undefined : { scale: 0.9, rotate: 2 }}
+            exit={
+              reducedMotion
+                ? { opacity: 0 }
+                : { scale: [1, 0.92, 1.18], opacity: [1, 1, 0], rotate: [0, -5, 3] }
+            }
+            transition={{ duration: reducedMotion ? 0.15 : 0.6 }}
+          >
+            <span className="opening-logo-glow" aria-hidden="true" />
+            <span className="opening-logo-orbit" aria-hidden="true" />
+            <img src={config.monogram} alt="" width={180} height={180} fetchPriority="high" />
+            {!reducedMotion && (
+              <span className="opening-petal-burst" aria-hidden="true">
+                {Array.from({ length: 18 }, (_, index) => (
+                  <motion.i
+                    key={index}
+                    initial={{ opacity: 0, x: 0, y: 0, scale: 0.3 }}
+                    exit={{
+                      x: Math.cos((index * Math.PI) / 9) * (130 + (index % 3) * 35),
+                      y: Math.sin((index * Math.PI) / 9) * (140 + (index % 4) * 25),
+                      rotate: index * 47,
+                      scale: [0.3, 1, 0.7],
+                      opacity: [0, 0.95, 0],
+                    }}
+                    transition={{ duration: 1.2, delay: index * 0.012, ease: "easeOut" }}
+                  />
+                ))}
+              </span>
+            )}
+          </motion.button>
           <motion.span
             exit={{ opacity: 0, x: reducedMotion ? 0 : 45 }}
             transition={{ duration: 0.45 }}
@@ -138,44 +178,6 @@ function InvitationOpening({ onOpen }: { onOpen: () => void }) {
             {config.couple.second}
           </motion.span>
         </h1>
-        <motion.button
-          type="button"
-          className="opening-logo-button focus-ring"
-          onClick={onOpen}
-          disabled={!isPresent}
-          autoFocus
-          aria-label="Open Krishan and Pooja’s wedding invitation"
-          whileHover={reducedMotion ? undefined : { scale: 1.09, rotate: -3 }}
-          whileTap={reducedMotion ? undefined : { scale: 0.9, rotate: 2 }}
-          exit={
-            reducedMotion
-              ? { opacity: 0 }
-              : { scale: [1, 0.92, 1.18], opacity: [1, 1, 0], rotate: [0, -5, 3] }
-          }
-          transition={{ duration: reducedMotion ? 0.15 : 0.6 }}
-        >
-          <span className="opening-logo-glow" aria-hidden="true" />
-          <span className="opening-logo-orbit" aria-hidden="true" />
-          <img src={config.monogram} alt="" width={180} height={180} fetchPriority="high" />
-          {!reducedMotion && (
-            <span className="opening-petal-burst" aria-hidden="true">
-              {Array.from({ length: 18 }, (_, index) => (
-                <motion.i
-                  key={index}
-                  initial={{ opacity: 0, x: 0, y: 0, scale: 0.3 }}
-                  exit={{
-                    x: Math.cos((index * Math.PI) / 9) * (130 + (index % 3) * 35),
-                    y: Math.sin((index * Math.PI) / 9) * (140 + (index % 4) * 25),
-                    rotate: index * 47,
-                    scale: [0.3, 1, 0.7],
-                    opacity: [0, 0.95, 0],
-                  }}
-                  transition={{ duration: 1.2, delay: index * 0.012, ease: "easeOut" }}
-                />
-              ))}
-            </span>
-          )}
-        </motion.button>
         <motion.div exit={{ opacity: 0, y: reducedMotion ? 0 : 14 }} transition={{ duration: 0.3 }}>
           <Pointer className="opening-tap-hint" strokeWidth={1.2} aria-hidden="true" />
           <p className="opening-instruction">Tap the monogram</p>
