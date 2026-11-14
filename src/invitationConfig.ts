@@ -26,7 +26,7 @@ const receptionVenue = {
   address: "Sajipur Road, Jeevan Nagar, Sector 87, Neharpar, Faridabad, Haryana – 121014",
 };
 const homeAddress = "House No. 37, Lakhpat Colony, Meethapur Extension, New Delhi – 110044";
-const groomParents = "Son of Mrs. Sushila Yadav & Mr. Jaykumar Yadav";
+const groomParents = "Son of Mrs. Sushila Yadav & Mr. Jai Kumar Yadav";
 const brideParents = "Daughter of Mrs. Madhu & Mr. Mukesh Kumar Bansal";
 
 export const invitationConfig = {
@@ -59,9 +59,9 @@ export const invitationConfig = {
     "Please join us for the celebrations and bless the bride and groom with your gracious presence.",
   homeAddress,
   nativeAddress: "Village Baliya, Post Janipur, District Gorakhpur, Uttar Pradesh",
-  hosts: "Mr. Bal Govind Yadav & Mr. Jaykumar Yadav",
+  hosts: "Mr. Bal Govind Yadav & Mr. Jai Kumar Yadav",
   rsvp: "Mr. Bal Govind Yadav",
-  wishesFrom: ["Dharmendra Yadav", "Jaykumar Yadav", "Mahendra Yadav"],
+  wishesFrom: ["Dharmendra Yadav", "Jai Kumar Yadav", "Mahendra Yadav"],
   welcomingFamily: [
     "Gulab Yadav",
     "Sanjay Yadav",

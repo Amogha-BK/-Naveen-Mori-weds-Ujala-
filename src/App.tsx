@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import {
   Check,
+  ChevronsDown,
   Clipboard,
   Flower2,
   MapPin,
@@ -728,6 +729,7 @@ function RSVP() {
 export default function App() {
   const [opened, setOpened] = useState(false);
   const [revealed, setRevealed] = useState(false);
+  const [showScrollCue, setShowScrollCue] = useState(false);
   const invitationHeading = useRef<HTMLHeadingElement>(null);
   const weddingAudio = useRef<HTMLAudioElement>(null);
 
@@ -736,6 +738,18 @@ export default function App() {
       window.scrollTo({ top: 0, behavior: "instant" });
       invitationHeading.current?.focus({ preventScroll: true });
     }
+  }, [revealed]);
+
+  useEffect(() => {
+    if (!revealed) return;
+    setShowScrollCue(true);
+    const dismissAfterScroll = () => {
+      if (window.scrollY <= 80) return;
+      setShowScrollCue(false);
+      window.removeEventListener("scroll", dismissAfterScroll);
+    };
+    window.addEventListener("scroll", dismissAfterScroll, { passive: true });
+    return () => window.removeEventListener("scroll", dismissAfterScroll);
   }, [revealed]);
 
   useEffect(() => {
@@ -788,6 +802,17 @@ export default function App() {
       <div className="invitation" inert={!revealed} aria-hidden={!revealed}>
         <Navigation />
         <MusicControl canPlay={opened} audio={weddingAudio} />
+        {showScrollCue && (
+          <a
+            className="scroll-cue scroll-cue-highlight focus-ring"
+            href="#invitation"
+            aria-label="Scroll down to the invitation details"
+            onClick={() => setShowScrollCue(false)}
+          >
+            <span>Scroll down</span>
+            <ChevronsDown aria-hidden="true" />
+          </a>
+        )}
         <main>
           <section className="hero" id="our-wedding">
             <div className="paper-grain" />

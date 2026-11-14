@@ -727,6 +727,39 @@ textarea:focus-visible {
   width: 17px;
   animation: bob 1.8s ease-in-out infinite;
 }
+.scroll-cue-highlight {
+  position: fixed;
+  z-index: 48;
+  left: 50%;
+  bottom: calc(5rem + env(safe-area-inset-bottom, 0px));
+  transform: translateX(-50%);
+  min-width: 132px;
+  min-height: 56px;
+  margin: 0;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--gold);
+  border-radius: 999px;
+  color: var(--paper);
+  background: var(--taupe);
+  box-shadow: 0 4px 20px rgb(117 44 39 / 0.24);
+  font-weight: 600;
+  animation: scroll-cue-glow 2s ease-in-out infinite;
+}
+.scroll-cue-highlight svg {
+  width: 22px;
+  height: 22px;
+  color: #f3d88f;
+}
+.scroll-cue-highlight:hover {
+  background: #5f211e;
+}
+@keyframes scroll-cue-glow {
+  50% {
+    box-shadow:
+      0 0 0 6px rgb(171 133 46 / 0.16),
+      0 4px 24px rgb(117 44 39 / 0.3);
+  }
+}
 @keyframes bob {
   50% {
     transform: translateY(5px);
