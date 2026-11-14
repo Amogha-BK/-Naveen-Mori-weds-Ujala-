@@ -433,7 +433,6 @@ function EventLocation({ event, className }: { event: Celebration; className: st
   if (!event.venue) return null;
   return (
     <div className={`event-location ${className}`}>
-      <span className="event-venue">{event.venue}</span>
       <div className="event-actions">
         <a
           className="button button-outline focus-ring"
@@ -804,8 +803,8 @@ export default function App() {
         {showScrollCue && (
           <a
             className="scroll-cue scroll-cue-highlight focus-ring"
-            href="#blessings"
-            aria-label="Scroll down to our blessings and invitation"
+            href="#invitation"
+            aria-label="Scroll down to the invitation details"
             onClick={() => setShowScrollCue(false)}
           >
             <span>Scroll down</span>
@@ -830,6 +829,11 @@ export default function App() {
                   {config.couple.secondParents && <p>{config.couple.secondParents}</p>}
                 </div>
               )}
+              <p className="hero-mantra" lang="sa">
+                {config.ganeshMantra[0]}
+                <br />
+                {config.ganeshMantra[1]}
+              </p>
               <div className="hero-invitation">
                 <p className="hero-invitation-title">You’re Invited</p>
                 <p>
@@ -840,28 +844,6 @@ export default function App() {
             </div>
             <div className="hero-artwork" aria-hidden="true">
               <img src={config.artwork} alt="" loading="lazy" decoding="async" />
-            </div>
-          </section>
-
-          <section
-            className="blessing-section"
-            id="blessings"
-            aria-label="A prayer for our new beginning"
-          >
-            <Monogram className="blessing-monogram" />
-            <p className="programme-invocation" lang="sa">
-              {config.invocation}
-            </p>
-            <p className="programme-invocation blessing-mantra" lang="sa">
-              {config.ganeshMantra[0]}
-              <br />
-              {config.ganeshMantra[1]}
-            </p>
-            <p className="translated-blessing">{config.programmeBlessing}</p>
-            <div className="botanical-rule" aria-hidden="true">
-              <i />
-              <Flower2 strokeWidth={1} />
-              <i />
             </div>
           </section>
 
