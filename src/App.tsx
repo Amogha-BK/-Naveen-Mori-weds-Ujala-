@@ -130,6 +130,14 @@ function InvitationOpening({ onOpen }: { onOpen: () => void }) {
           >
             {config.couple.first}
           </motion.span>
+          <span className="opening-ampersand">&amp;</span>
+          <motion.span
+            exit={{ opacity: 0, x: reducedMotion ? 0 : 45 }}
+            transition={{ duration: 0.45 }}
+          >
+            {config.couple.second}
+          </motion.span>
+        </h1>
           <motion.button
             type="button"
             className="opening-logo-button focus-ring"
@@ -168,13 +176,6 @@ function InvitationOpening({ onOpen }: { onOpen: () => void }) {
               </span>
             )}
           </motion.button>
-          <motion.span
-            exit={{ opacity: 0, x: reducedMotion ? 0 : 45 }}
-            transition={{ duration: 0.45 }}
-          >
-            {config.couple.second}
-          </motion.span>
-        </h1>
         <motion.div exit={{ opacity: 0, y: reducedMotion ? 0 : 14 }} transition={{ duration: 0.3 }}>
           <Pointer className="opening-tap-hint" strokeWidth={1.2} aria-hidden="true" />
           <p className="opening-instruction">Tap the monogram</p>
@@ -793,9 +794,9 @@ export default function App() {
               <Monogram className="hero-monogram" />
               <p className="eyebrow">The wedding celebrations of</p>
               <h1 ref={invitationHeading} tabIndex={-1}>
-                {config.couple.first}
-                <span>&</span>
-                {config.couple.second}
+                <span className="hero-name">{config.couple.first}</span>
+                <span className="hero-ampersand">&amp;</span>
+                <span className="hero-name">{config.couple.second}</span>
               </h1>
               {parentsPresent && (
                 <div className="parent-lines">
@@ -811,7 +812,7 @@ export default function App() {
               </div>
             </div>
             <div className="hero-artwork" aria-hidden="true">
-              <img src={config.artwork} alt="" fetchPriority="high" />
+              <img src={config.artwork} alt="" loading="lazy" decoding="async" />
             </div>
           </section>
 
