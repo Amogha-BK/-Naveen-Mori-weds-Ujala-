@@ -731,7 +731,7 @@ textarea:focus-visible {
   position: fixed;
   z-index: 48;
   left: 50%;
-  bottom: calc(5rem + env(safe-area-inset-bottom, 0px));
+  bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px));
   transform: translateX(-50%);
   min-width: 132px;
   min-height: 56px;
@@ -831,6 +831,10 @@ textarea:focus-visible {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 1.25rem;
+}
+.family-section > div:not(.edge-flower) > p {
+  margin: 0;
 }
 .script-accent {
   color: var(--gold);
@@ -918,7 +922,7 @@ textarea:focus-visible {
     url("/assets/image-7") center/cover;
 }
 .countdown-label {
-  margin: 2.6rem 0 1rem;
+  margin: 1.75rem 0 0.75rem;
   color: var(--sage-deep);
   text-align: center;
   font-family: var(--font-display);
@@ -1105,12 +1109,12 @@ textarea:focus-visible {
   overflow: hidden;
   isolation: isolate;
   width: min(100%, 610px);
-  min-height: 440px;
+  min-height: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 3rem 1.25rem;
+  padding: 0;
   text-align: center;
   color: var(--ink);
 }
@@ -2432,7 +2436,7 @@ footer {
   }
   .venue-content {
     min-height: 0;
-    padding: 2rem 0;
+    padding: 0;
   }
   .venue-content > p {
     font-size: 0.9375rem;
@@ -2640,7 +2644,7 @@ footer {
   font-size: clamp(2rem, 5vw, 3rem);
 }
 .children-welcome {
-  padding: clamp(3.5rem, 8vw, 6rem) 1.5rem;
+  padding: clamp(3rem, 6vw, 4.5rem) 1.5rem;
   text-align: center;
   background: #faf6ee;
   border-block: 1px solid rgb(171 133 46 / 0.15);
@@ -2767,11 +2771,14 @@ footer {
   margin-top: 1.25rem;
 }
 .closing-copy .contact-numbers {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  justify-items: center;
   gap: 0.5rem;
   font-size: 1rem;
+}
+.closing-copy .contact-label {
+  flex-basis: auto;
 }
 .closing-copy .contact-separator {
   display: none;
@@ -2805,7 +2812,7 @@ footer {
 }
 .invitation-families {
   gap: 1.5rem;
-  margin-block: 2rem;
+  margin-block: 0.75rem;
 }
 .invitation-families > div {
   min-width: 0;
@@ -2878,6 +2885,8 @@ footer {
 }
 .event-line {
   margin-block: 1.25rem 1.75rem;
+  text-align: center;
+  text-wrap: balance;
 }
 .closing-copy {
   width: min(100%, 560px);
@@ -2917,7 +2926,7 @@ footer {
   }
   .invitation-families {
     gap: 0.75rem;
-    margin-block: 1.5rem;
+    margin-block: 0.75rem;
   }
   .family-name-list {
     font-size: 0.875rem;
@@ -2969,7 +2978,7 @@ footer {
 .countdown-section,
 .celebrations-section,
 .venue-section {
-  padding-block: clamp(3.5rem, 7vw, 6rem);
+  padding-block: clamp(3rem, 6vw, 4.5rem);
   padding-inline: max(clamp(1rem, 4vw, 3rem), env(safe-area-inset-left, 0px))
     max(clamp(1rem, 4vw, 3rem), env(safe-area-inset-right, 0px));
 }
@@ -3000,8 +3009,21 @@ footer {
 }
 .invitation-regards {
   gap: 2rem;
-  padding-block: 2rem;
-  margin-block: 1.5rem 0;
+  padding-block: 1.5rem;
+  margin-block: 0;
+}
+.family-section .welcoming-family {
+  margin: 0;
+  padding-block: 1.5rem;
+}
+.welcoming-family .family-name-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  width: 100%;
+  gap: 0.6rem 1rem;
+}
+.welcoming-family .family-name-list > li:last-child {
+  grid-column: 2;
 }
 .family-name-list {
   row-gap: 0.65rem;
@@ -3065,7 +3087,7 @@ footer {
     border-top: 1px solid var(--gold-light);
   }
   .event-details {
-    font-size: clamp(0.75rem, 3.2cqi, 0.875rem);
+    font-size: clamp(0.8125rem, 3.6cqi, 0.9375rem);
     line-height: 1.7;
   }
   .event-card h3 {
@@ -3077,6 +3099,61 @@ footer {
   }
   .opening-welcome {
     padding-inline: 0;
+  }
+}
+
+/* Header controls have their own space, so they never cover invitation text. */
+.site-nav {
+  gap: 0.75rem;
+}
+.site-nav .music-controls {
+  position: static;
+  flex: 0 0 auto;
+  gap: 0.375rem;
+}
+.site-nav .icon-button {
+  width: 44px;
+  height: 44px;
+  box-shadow: none;
+}
+.site-nav .nav-mark {
+  margin-right: auto;
+  flex: 0 0 auto;
+}
+.site-nav .nav-toggle {
+  flex: 0 0 auto;
+}
+.closing-copy .family-contacts {
+  width: 100%;
+}
+.closing-copy .contact-numbers {
+  width: 100%;
+}
+
+@media (min-width: 800px) {
+  .site-nav .nav-links {
+    gap: clamp(1rem, 2vw, 2rem);
+    margin-right: 1rem;
+  }
+  .hero {
+    padding-top: calc(6rem + env(safe-area-inset-top, 0px));
+    padding-bottom: 240px;
+  }
+  .hero h1 {
+    font-size: clamp(4rem, 7vw, 5rem);
+  }
+  .hero-monogram {
+    width: 120px;
+  }
+}
+
+@media (max-width: 700px) {
+  .welcoming-family .family-name-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.6rem 0.5rem;
+  }
+  .welcoming-family .family-name-list > li:last-child {
+    grid-column: 1 / -1;
   }
 }
 

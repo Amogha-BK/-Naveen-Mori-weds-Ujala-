@@ -314,7 +314,7 @@ function MusicControl({
   );
 }
 
-function Navigation() {
+function Navigation({ children }: { children: React.ReactNode }) {
   const [open, setOpen] = useState(false);
   const toggle = useRef<HTMLButtonElement>(null);
   useEffect(() => {
@@ -345,6 +345,7 @@ function Navigation() {
           </a>
         ))}
       </div>
+      {children}
       <button
         ref={toggle}
         className="nav-toggle focus-ring"
@@ -797,8 +798,9 @@ export default function App() {
         {!opened && <InvitationOpening key="opening" onOpen={openInvitation} />}
       </AnimatePresence>
       <div className="invitation" inert={!revealed} aria-hidden={!revealed}>
-        <Navigation />
-        <MusicControl canPlay={opened} audio={weddingAudio} />
+        <Navigation>
+          <MusicControl canPlay={opened} audio={weddingAudio} />
+        </Navigation>
         {showScrollCue && (
           <a
             className="scroll-cue scroll-cue-highlight focus-ring"
@@ -985,13 +987,8 @@ export default function App() {
               <div className="family-contacts">
                 <div className="contact-numbers" aria-label="Family contact numbers">
                   <span className="contact-label">Contact:</span>
-                  {config.contacts.map((number, index) => (
+                  {config.contacts.map((number) => (
                     <span key={number} className="contact-number">
-                      {index > 0 && (
-                        <span className="contact-separator" aria-hidden="true">
-                          ·
-                        </span>
-                      )}
                       {number.length === 10 ? (
                         <a className="focus-ring" href={`tel:+91${number}`}>
                           {number}
