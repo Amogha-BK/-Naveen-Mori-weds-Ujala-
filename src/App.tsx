@@ -841,11 +841,6 @@ export default function App() {
                 {config.ganeshMantra[1]}
               </p>
               <div className="hero-invitation">
-                <p className="hero-invitation-title">You’re Invited</p>
-                <p>
-                  With joyful hearts, we invite you to celebrate our wedding and bless our new
-                  beginning.
-                </p>
                 <div className="scroll-cue-slot">
                   {showScrollCue && (
                     <a
@@ -859,6 +854,11 @@ export default function App() {
                     </a>
                   )}
                 </div>
+                <p className="hero-invitation-title">You’re Invited</p>
+                <p>
+                  With joyful hearts, we invite you to celebrate our wedding and bless our new
+                  beginning.
+                </p>
               </div>
             </div>
             <div className="hero-artwork" aria-hidden="true">

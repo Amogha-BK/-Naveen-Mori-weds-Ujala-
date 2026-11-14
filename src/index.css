@@ -731,14 +731,16 @@ textarea:focus-visible {
 .scroll-cue-slot {
   display: flex;
   justify-content: center;
+  align-items: center;
   width: 100%;
   min-height: 76px;
+  padding-block: 0.625rem;
 }
 .scroll-cue-highlight {
   position: relative;
   min-width: 132px;
   min-height: 56px;
-  margin: 1.25rem 0 0;
+  margin: 0;
   padding: 0.5rem 1rem;
   border: 1px solid var(--gold);
   border-radius: 999px;
