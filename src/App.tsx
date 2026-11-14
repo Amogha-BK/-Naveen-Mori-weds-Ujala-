@@ -320,7 +320,21 @@ function Navigation({ children }: { children: React.ReactNode }) {
       }
     };
     document.addEventListener("keydown", closeOnEscape);
-    return () => document.removeEventListener("keydown", closeOnEscape);
+    const closeOutsideNavigation = (event: PointerEvent) => {
+      const nav = toggle.current?.closest("nav");
+      if (event.target instanceof Node && !nav?.contains(event.target)) setOpen(false);
+    };
+    const desktop = window.matchMedia("(min-width: 800px)");
+    const closeOnDesktop = () => {
+      if (desktop.matches) setOpen(false);
+    };
+    document.addEventListener("pointerdown", closeOutsideNavigation);
+    desktop.addEventListener("change", closeOnDesktop);
+    return () => {
+      document.removeEventListener("keydown", closeOnEscape);
+      document.removeEventListener("pointerdown", closeOutsideNavigation);
+      desktop.removeEventListener("change", closeOnDesktop);
+    };
   }, [open]);
   return (
     <nav className="site-nav" aria-label="Invitation navigation">
@@ -361,15 +375,23 @@ function Countdown() {
 
   useEffect(() => {
     const update = () => setNow(Date.now());
-    const timer = window.setInterval(update, 1000);
-    document.addEventListener("visibilitychange", update);
-    window.addEventListener("focus", update);
-    window.addEventListener("pageshow", update);
+    let timer: number | undefined;
+    const syncTimer = () => {
+      window.clearInterval(timer);
+      timer = undefined;
+      if (document.hidden) return;
+      update();
+      timer = window.setInterval(update, 1000);
+    };
+    syncTimer();
+    document.addEventListener("visibilitychange", syncTimer);
+    window.addEventListener("focus", syncTimer);
+    window.addEventListener("pageshow", syncTimer);
     return () => {
       window.clearInterval(timer);
-      document.removeEventListener("visibilitychange", update);
-      window.removeEventListener("focus", update);
-      window.removeEventListener("pageshow", update);
+      document.removeEventListener("visibilitychange", syncTimer);
+      window.removeEventListener("focus", syncTimer);
+      window.removeEventListener("pageshow", syncTimer);
     };
   }, []);
 
@@ -452,7 +474,16 @@ function EventCard({ event, index }: { event: Celebration; index: number }) {
       transition={{ duration: 0.8, delay: index * 0.08 }}
     >
       <div className="event-portrait">
-        <img src={event.image} alt="" loading="lazy" decoding="async" width={1024} height={1536} />
+        <img
+          src={event.image}
+          srcSet={`${event.image.replace(".jpg", "-640.jpg")} 640w, ${event.image} 1024w`}
+          sizes="(max-width: 680px) calc(100vw - 2rem), 620px"
+          alt=""
+          loading="lazy"
+          decoding="async"
+          width={1024}
+          height={1536}
+        />
         <div className="event-content">
           <Monogram className="event-monogram" />
           <h3>{event.shortName}</h3>
@@ -794,17 +825,6 @@ export default function App() {
         <Navigation>
           <MusicControl canPlay={opened} audio={weddingAudio} />
         </Navigation>
-        {showScrollCue && (
-          <a
-            className="scroll-cue scroll-cue-highlight focus-ring"
-            href="#invitation"
-            aria-label="Scroll down to the invitation details"
-            onClick={() => setShowScrollCue(false)}
-          >
-            <span>Scroll down</span>
-            <ChevronsDown aria-hidden="true" />
-          </a>
-        )}
         <main>
           <section className="hero" id="our-wedding">
             <div className="paper-grain" />
@@ -835,9 +855,31 @@ export default function App() {
                   beginning.
                 </p>
               </div>
+              <div className="scroll-cue-slot">
+                {showScrollCue && (
+                  <a
+                    className="scroll-cue scroll-cue-highlight focus-ring"
+                    href="#invitation"
+                    aria-label="Scroll down to the invitation details"
+                    onClick={() => setShowScrollCue(false)}
+                  >
+                    <span>Scroll down</span>
+                    <ChevronsDown aria-hidden="true" />
+                  </a>
+                )}
+              </div>
             </div>
             <div className="hero-artwork" aria-hidden="true">
-              <img src={config.artwork} alt="" loading="lazy" decoding="async" />
+              <img
+                src={config.artwork}
+                srcSet={`${config.artwork.replace(".jpg", "-768.jpg")} 768w, ${config.artwork} 1536w`}
+                sizes="(min-width: 1100px) 1040px, (min-width: 760px) 760px, 100vw"
+                alt=""
+                loading="lazy"
+                decoding="async"
+                width={1536}
+                height={1024}
+              />
             </div>
           </section>
 

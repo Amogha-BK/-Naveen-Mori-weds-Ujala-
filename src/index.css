@@ -638,6 +638,7 @@ textarea:focus-visible {
 /* Hero */
 .hero {
   position: relative;
+  min-height: 100vh;
   min-height: 100svh;
   display: grid;
   place-items: center;
@@ -727,15 +728,17 @@ textarea:focus-visible {
   width: 17px;
   animation: bob 1.8s ease-in-out infinite;
 }
+.scroll-cue-slot {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  min-height: 76px;
+}
 .scroll-cue-highlight {
-  position: fixed;
-  z-index: 48;
-  left: 50%;
-  bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px));
-  transform: translateX(-50%);
+  position: relative;
   min-width: 132px;
   min-height: 56px;
-  margin: 0;
+  margin: 1.25rem 0 0;
   padding: 0.5rem 1rem;
   border: 1px solid var(--gold);
   border-radius: 999px;
@@ -2228,9 +2231,43 @@ html {
 }
 .nav-links {
   top: calc(64px + env(safe-area-inset-top, 0px));
+  max-height: calc(100vh - 64px - env(safe-area-inset-top, 0px));
   max-height: calc(100svh - 64px - env(safe-area-inset-top, 0px));
   overflow-y: auto;
   overscroll-behavior: contain;
+}
+
+/* Mobile browser chrome, notches and the iPhone home indicator. */
+.children-welcome,
+footer {
+  padding-left: max(1.5rem, env(safe-area-inset-left, 0px));
+  padding-right: max(1.5rem, env(safe-area-inset-right, 0px));
+}
+@media (max-width: 799px) {
+  .nav-links {
+    padding-bottom: max(1rem, env(safe-area-inset-bottom, 0px));
+  }
+}
+@media (max-width: 700px) {
+  .countdown-target,
+  .countdown-clock {
+    font-size: 0.8125rem;
+    line-height: 1.75;
+  }
+  .opening-floral-backdrop {
+    background-image: url("/assets/kishan-pooja-wedding-arch-v3-640.jpg");
+  }
+}
+@media (hover: none) and (pointer: coarse) {
+  .opening-sparkles i,
+  .opening-logo-orbit {
+    animation: none;
+  }
+  .site-nav .icon-button,
+  .contact-number a {
+    min-width: 44px;
+    min-height: 44px;
+  }
 }
 .nav-toggle {
   width: 48px;
@@ -2372,7 +2409,7 @@ footer {
   }
   .countdown-target,
   .countdown-clock {
-    font-size: 0.75rem;
+    font-size: 0.8125rem;
   }
   .events {
     margin-top: 2rem;
@@ -2445,7 +2482,8 @@ footer {
     width: 100%;
   }
   footer {
-    padding-inline: max(1rem, env(safe-area-inset-left, 0px));
+    padding-left: max(1rem, env(safe-area-inset-left, 0px));
+    padding-right: max(1rem, env(safe-area-inset-right, 0px));
   }
   .contact-numbers {
     gap: 0.25rem 0.5rem;
@@ -2973,7 +3011,7 @@ footer {
     display: none;
   }
   .contact-number a {
-    min-height: 40px;
+    min-height: 44px;
   }
   .closing-copy .closing-message {
     row-gap: 0.15rem;
