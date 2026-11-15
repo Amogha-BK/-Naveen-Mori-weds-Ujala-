@@ -1,0 +1,5 @@
+# Combined wedding crest
+
+Built-in image generation. Original: `joint-wedding-crest.png`. Optimized website asset: `joint-wedding-crest-480.jpg`.
+
+Use case: logo-brand. Generate ONE cohesive premium Indian double wedding crest uniting TWO couples. Square 1024x1024 artwork. A SINGLE circular antique gold embossed botanical medallion, not overlapping circles. Inside that one crest, the clearly readable burgundy calligraphic serif text 'N & U' on the upper half, a very fine gold floral divider, and 'P & N' on the lower half. The pairing MUST read N & U then P & N, four distinct legible initials, equal importance. Delicate ivory jasmine wreath and gold leaves inside the border, a small lotus crown above, restrained burgundy roses at the bottom. Fine gold foil craft, warm ivory #f6f0e5 background. Flat frontal elegant heirloom stationery emblem. Only text is N & U and P & N, no full names, no additional words, no watermark. Balanced breathing room, complete border fits inside frame with 6 percent margin. ONE outer medallion containing BOTH sets of initials.

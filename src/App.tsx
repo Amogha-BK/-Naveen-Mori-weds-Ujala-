@@ -30,6 +30,12 @@ const indiaClock = new Intl.DateTimeFormat("en-GB", {
   hourCycle: "h23",
 });
 
+const invitationCouples = [
+  { groom: config.couple.first, bride: config.couple.second, monogram: config.monogram },
+  config.secondCouple,
+];
+const jointInvitationLabel = invitationCouples.map((couple) => couple.groom + " and " + couple.bride).join("; ");
+
 const navItems = [
   ["Our Wedding", "our-wedding"],
   ["Celebrations", "celebrations"],
@@ -41,7 +47,7 @@ function Monogram({ className = "" }: { className?: string }) {
     <img
       className={`monogram ${className}`}
       src={config.monogram}
-      alt="N and U wedding monogram for Naveen Mori and Ujala Suneha"
+      alt="Combined wedding crest: N and U for Naveen and Ujala, P and N for Pardeep and Nisha"
     />
   );
 }
@@ -64,7 +70,7 @@ function InvitationOpening({ onOpen }: { onOpen: () => void }) {
   return (
     <motion.section
       className="invitation-opening"
-      aria-label="Open Naveen Mori and Ujala Suneha’s wedding invitation"
+      aria-label={`Open the wedding invitation for ${jointInvitationLabel}`}
       initial={{ opacity: 1 }}
       exit={{ opacity: reducedMotion ? 0 : [1, 1, 0] }}
       transition={{ duration: reducedMotion ? 0.15 : 1.65, times: [0, 0.9, 1], ease: "easeInOut" }}
@@ -115,72 +121,33 @@ function InvitationOpening({ onOpen }: { onOpen: () => void }) {
           <i key={index} />
         ))}
       </motion.div>
-      <div className="opening-welcome">
+      <div className="joint-opening-content">
         <motion.div
           exit={{ opacity: 0, y: reducedMotion ? 0 : -18 }}
           transition={{ duration: 0.35 }}
         >
           <Flower2 className="opening-flower" strokeWidth={1} aria-hidden="true" />
-          <p className="opening-kicker">A celebration of love &amp; togetherness</p>
+          <p className="opening-kicker">Two beautiful unions, one celebration</p>
         </motion.div>
-        <h1
-          className="opening-names"
-          aria-label={`${config.couple.first} and ${config.couple.second}`}
-        >
-          <motion.span
-            exit={{ opacity: 0, x: reducedMotion ? 0 : -45 }}
-            transition={{ duration: 0.45 }}
-          >
-            {config.couple.first}
-          </motion.span>
-          <motion.button
-            type="button"
-            className="opening-logo-button focus-ring"
-            onClick={onOpen}
-            disabled={!isPresent}
-            autoFocus
-            aria-label="Open Naveen Mori and Ujala Suneha’s wedding invitation"
-            whileHover={reducedMotion ? undefined : { scale: 1.09, rotate: -3 }}
-            whileTap={reducedMotion ? undefined : { scale: 0.9, rotate: 2 }}
-            exit={
-              reducedMotion
-                ? { opacity: 0 }
-                : { scale: [1, 0.92, 1.18], opacity: [1, 1, 0], rotate: [0, -5, 3] }
-            }
-            transition={{ duration: reducedMotion ? 0.15 : 0.6 }}
-          >
-            <span className="opening-logo-glow" aria-hidden="true" />
-            <span className="opening-logo-orbit" aria-hidden="true" />
-            <img src={config.monogram} alt="" width={180} height={180} fetchPriority="high" />
-            {!reducedMotion && (
-              <span className="opening-petal-burst" aria-hidden="true">
-                {Array.from({ length: 18 }, (_, index) => (
-                  <motion.i
-                    key={index}
-                    initial={{ opacity: 0, x: 0, y: 0, scale: 0.3 }}
-                    exit={{
-                      x: Math.cos((index * Math.PI) / 9) * (130 + (index % 3) * 35),
-                      y: Math.sin((index * Math.PI) / 9) * (140 + (index % 4) * 25),
-                      rotate: index * 47,
-                      scale: [0.3, 1, 0.7],
-                      opacity: [0, 0.95, 0],
-                    }}
-                    transition={{ duration: 1.2, delay: index * 0.012, ease: "easeOut" }}
-                  />
-                ))}
-              </span>
-            )}
-          </motion.button>
-          <motion.span
-            exit={{ opacity: 0, x: reducedMotion ? 0 : 45 }}
-            transition={{ duration: 0.45 }}
-          >
-            {config.couple.second}
-          </motion.span>
+        <motion.button
+          type="button" className="joint-opening-button focus-ring"
+          onClick={onOpen} disabled={!isPresent} autoFocus
+          aria-label={`Open the wedding invitation for ${jointInvitationLabel}`}
+          whileHover={reducedMotion ? undefined : { scale: 1.04 }}
+          whileTap={reducedMotion ? undefined : { scale: 0.96 }}
+          exit={{ opacity: 0, scale: reducedMotion ? 1 : 1.1 }}>
+          <img src={config.monogram} alt="Combined N & U and P & N wedding crest" width={480} height={480} fetchPriority="high" />
+        </motion.button>
+        <h1 className="joint-opening-names">
+          {invitationCouples.map((couple) => (
+            <span className="joint-opening-pair" key={couple.groom}>
+              <span>{couple.groom}</span><em>&amp;</em><span>{couple.bride}</span>
+            </span>
+          ))}
         </h1>
         <motion.div exit={{ opacity: 0, y: reducedMotion ? 0 : 14 }} transition={{ duration: 0.3 }}>
           <Pointer className="opening-tap-hint" strokeWidth={1.2} aria-hidden="true" />
-          <p className="opening-instruction">Tap the monogram</p>
+          <p className="opening-instruction">Tap the wedding crest</p>
           <p className="opening-whisper">to open our invitation</p>
           <p className="opening-celebration-dates">3 &amp; 4 December 2026</p>
           <p className="opening-location">Assandh, Haryana</p>
@@ -342,10 +309,10 @@ function Navigation({ children }: { children: React.ReactNode }) {
       <a
         className="nav-mark focus-ring"
         href="#our-wedding"
-        aria-label="Home"
+        aria-label="Both couples home"
         onClick={() => setOpen(false)}
       >
-        {config.couple.first[0]} <span>&amp;</span> {config.couple.second[0]}
+        <span className="nav-couple-initials">N <i>&amp;</i> U</span><span className="nav-couple-divider" aria-hidden="true">/</span><span className="nav-couple-initials">P <i>&amp;</i> N</span>
       </a>
       <div id="invitation-navigation" className={`nav-links ${open ? "nav-links-open" : ""}`}>
         {navItems.map(([label, id]) => (
@@ -694,7 +661,7 @@ function RSVP() {
         </AnimatePresence>
         <label className="field">
           <span>
-            Message for Naveen &amp; Ujala Suneha <em>Optional</em>
+            Message for the couples <em>Optional</em>
           </span>
           <textarea
             rows={4}
@@ -802,8 +769,6 @@ export default function App() {
     setOpened(true);
   };
 
-  const parentsPresent =
-    Boolean(config.couple.firstParents) || Boolean(config.couple.secondParents);
   const optionalDetails = Object.entries({
     Travel: config.optional.travel,
     Stay: config.optional.stay,
@@ -824,19 +789,17 @@ export default function App() {
             <div className="paper-grain" />
             <div className="hero-inner">
               <p className="ganesh-invocation">{config.invocation}</p>
-              <Monogram className="hero-monogram" />
               <p className="eyebrow">The wedding celebrations of</p>
-              <h1 ref={invitationHeading} tabIndex={-1}>
-                <span className="hero-name">{config.couple.first}</span>
-                <span className="hero-ampersand">&amp;</span>
-                <span className="hero-name">{config.couple.second}</span>
+              <Monogram className="joint-hero-crest" />
+              <h1 className="joint-hero-heading" ref={invitationHeading} tabIndex={-1}>
+                {invitationCouples.map((couple) => (
+                  <span className="joint-hero-couple" key={couple.groom}>
+                    <span>{couple.groom}</span>
+                    <span className="joint-hero-weds">weds</span>
+                    <span>{couple.bride}</span>
+                  </span>
+                ))}
               </h1>
-              {parentsPresent && (
-                <div className="parent-lines">
-                  {config.couple.firstParents && <p>{config.couple.firstParents}</p>}
-                  {config.couple.secondParents && <p>{config.couple.secondParents}</p>}
-                </div>
-              )}
               <div className="couple-dates">
                 <p><span>Save the date &middot; Haldi &amp; Mehndi</span><time dateTime="2026-12-03">{config.saveTheDate}</time></p>
                 <p><span>Wedding celebrations</span><time dateTime="2026-12-04">{config.dateLabel}</time></p>
@@ -863,7 +826,7 @@ export default function App() {
                 </div>
                 <p className="hero-invitation-title">You’re Invited</p>
                 <p>
-                  With joyful hearts, we invite you to celebrate our wedding and bless our new
+                  With joyful hearts, we invite you to celebrate our weddings and bless our new
                   beginning.
                 </p>
               </div>
@@ -914,6 +877,27 @@ export default function App() {
             </motion.div>
           </section>
 
+          <section className="second-couple-section" aria-labelledby="second-couple-heading">
+            <p className="eyebrow">With joyful hearts</p>
+            <img
+              className="monogram second-couple-monogram"
+              src={config.secondCouple.monogram}
+              alt="P and N wedding monogram for Pardeep Mori and Nisha Suneha"
+              width={480}
+              height={480}
+              loading="lazy"
+              decoding="async"
+            />
+            <h2 id="second-couple-heading">
+              <span>{config.secondCouple.groom}</span>
+              <span className="second-couple-ampersand">&amp;</span>
+              <span>{config.secondCouple.bride}</span>
+            </h2>
+            <div className="botanical-rule" aria-hidden="true">
+              <i /><Flower2 strokeWidth={1} /><i />
+            </div>
+          </section>
+
           <section className="celebrations-section" id="celebrations">
             <SectionHeading>Join our celebrations</SectionHeading>
             <div className="events">
@@ -954,7 +938,7 @@ export default function App() {
               <Monogram />
               <span>From:</span>
               <p className="closing-message">{config.hosts}</p>
-              <p>Celebrating Naveen Mori &amp; Ujala Suneha</p>
+              {invitationCouples.map((couple) => <p key={couple.groom}>{couple.groom} &amp; {couple.bride}</p>)}
               <p>{config.weddingLabel}</p>
               <div className="closing-rule" aria-hidden="true" />
               <p>Our celebration is complete with you.</p>

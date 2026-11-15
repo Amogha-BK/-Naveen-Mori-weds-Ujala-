@@ -16,6 +16,11 @@ export type Celebration = {
 };
 
 export const invitationConfig = {
+  secondCouple: {
+    groom: "Pardeep Mori",
+    bride: "Nisha Suneha",
+    monogram: "/assets/joint-wedding-crest-480.jpg",
+  },
   couple: {
     first: "Naveen Mori",
     second: "Ujala Suneha",
@@ -39,10 +44,10 @@ export const invitationConfig = {
   programmeBlessing:
     "O Lord Ganesha, of the curved trunk and mighty form, radiant as a million suns, please remove all obstacles from our endeavours, always.",
   memorialLine: "With the blessings of our families",
-  invitationLine: "The Mori and Suneha families cordially invite you to celebrate the wedding of Naveen Mori and Ujala Suneha.",
-  blessingLine: "Please join us for the celebrations and bless the bride and groom with your gracious presence.",
+  invitationLine: "The Mori and Suneha families cordially invite you to celebrate the weddings of Naveen Mori with Ujala Suneha and Pardeep Mori with Nisha Suneha.",
+  blessingLine: "Please join us for the celebrations and bless both couples with your gracious presence.",
   hosts: "The Mori & Suneha families",
-  monogram: "/assets/naveen-ujala-logo-v2-360.jpg",
+  monogram: "/assets/joint-wedding-crest-480.jpg",
   artwork: "/assets/naveen-ujala-opening-v2.jpg",
   venue: {
   "name": "Wedding venue · Assandh",
@@ -62,7 +67,7 @@ export const invitationConfig = {
     "address": "Malikpure Bypass Rd, Vishkarmanagar, Assandh, Assandh Ruralpart, Haryana 132039",
     "supportingLine": "A golden glow, henna-filled hands and the warmth of family.",
     "start": "2026-12-03",
-    "calendarTitle": "Naveen & Ujala Suneha · Haldi & Mehndi",
+    "calendarTitle": "Naveen & Ujala and Pardeep & Nisha · Haldi & Mehndi",
     "image": "/assets/naveen-ujala-haldi-mehndi-v2.jpg",
     "scene": "lanterns",
     "mapUrl": "https://maps.app.goo.gl/L4aprKSfMCRGbpLd7?g_st=ic"
@@ -78,7 +83,7 @@ export const invitationConfig = {
     "address": "Malikpure Bypass Rd, Vishkarmanagar, Assandh, Assandh Ruralpart, Haryana 132039",
     "supportingLine": "Sacred vows, two hearts and a lifetime of togetherness.",
     "start": "2026-12-04",
-    "calendarTitle": "Naveen & Ujala Suneha · Wedding",
+    "calendarTitle": "Naveen & Ujala and Pardeep & Nisha · Wedding",
     "image": "/assets/naveen-ujala-wedding-v2.jpg",
     "scene": "fire",
     "mapUrl": "https://maps.app.goo.gl/L4aprKSfMCRGbpLd7?g_st=ic"

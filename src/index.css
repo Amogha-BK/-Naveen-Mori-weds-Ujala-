@@ -3392,3 +3392,303 @@ footer {
     font-size: 11px;
   }
 }
+
+/* A matching place in the invitation for the second couple. */
+.second-couple-section {
+  padding: clamp(3rem, 7vw, 5rem) 1.5rem;
+  text-align: center;
+  background: var(--paper);
+  border-block: 1px solid var(--gold-light);
+}
+.second-couple-section .second-couple-monogram {
+  width: clamp(150px, 30vw, 210px);
+  height: auto;
+  margin: 1.5rem auto;
+}
+.second-couple-section h2 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem 1rem;
+  color: var(--taupe);
+  font: 500 clamp(2rem, 5vw, 3.25rem)/1.25 var(--font-display);
+  text-wrap: balance;
+}
+.second-couple-ampersand {
+  color: var(--gold);
+  font: 400 0.75em/1 var(--font-script);
+}
+.second-couple-section .botanical-rule {
+  margin-top: 1.75rem;
+}
+@media (max-width: 600px) {
+  .second-couple-section h2 {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+/* Give both couples equal presence on the welcome screen and main invitation. */
+.invitation-opening .opening-welcome {
+  width: min(84%, 780px);
+}
+.opening-couples {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: clamp(1rem, 4vw, 3rem);
+  margin: clamp(1.25rem, 4vh, 2rem) auto 1.5rem;
+}
+.opening-couple {
+  display: grid;
+  justify-items: center;
+  gap: 1.1rem;
+  min-width: 0;
+}
+.opening-couple + .opening-couple {
+  border-left: 1px solid rgb(171 133 46 / 0.3);
+  padding-left: clamp(1rem, 3vw, 2rem);
+}
+.invitation-opening .opening-couple .opening-logo-button {
+  width: clamp(100px, 17vw, 160px);
+}
+.opening-couple h2 {
+  display: grid;
+  gap: 0.3rem;
+  color: var(--taupe);
+  font: 500 clamp(22px, 3.6vw, 38px)/1.18 var(--font-display);
+  text-wrap: balance;
+}
+.opening-couple .opening-couple-weds {
+  color: var(--gold);
+  font: 400 0.65em/1.2 var(--font-script);
+}
+.site-nav .nav-mark {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: clamp(14px, 2.8vw, 20px);
+  white-space: nowrap;
+}
+.site-nav .nav-mark .nav-couple-initials {
+  color: var(--taupe);
+}
+.nav-couple-initials i,
+.site-nav .nav-mark .nav-couple-divider {
+  color: var(--gold);
+  font-weight: 400;
+}
+.hero h1.joint-hero-heading {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 850px;
+  margin: 1.5rem auto;
+  font: 500 clamp(24px, 4vw, 40px)/1.18 var(--font-display);
+}
+.joint-hero-couple {
+  display: grid;
+  justify-items: center;
+  align-content: start;
+  gap: 0.45rem;
+  min-width: 0;
+  text-wrap: balance;
+}
+.joint-hero-couple .monogram {
+  width: clamp(90px, 15vw, 140px);
+  height: auto;
+  margin: 0 auto 0.5rem;
+}
+.joint-hero-couple .joint-hero-weds {
+  color: var(--gold);
+  font: 400 0.65em/1.1 var(--font-script);
+}
+@media (max-width: 480px) {
+  .opening-couples {
+    gap: 0.7rem;
+  }
+  .opening-couple + .opening-couple {
+    padding-left: 0.7rem;
+  }
+  .opening-couple h2 {
+    font-size: clamp(20px, 5.2vw, 25px);
+  }
+  .invitation-opening .opening-couple .opening-logo-button {
+    width: clamp(85px, 24vw, 112px);
+  }
+  .hero h1.joint-hero-heading {
+    gap: 1rem;
+    font-size: clamp(21px, 5.5vw, 27px);
+  }
+}
+@media (max-height: 500px) {
+  .opening-couples {
+    margin-block: 0.75rem;
+  }
+  .opening-couple {
+    gap: 0.5rem;
+  }
+  .invitation-opening .opening-couple .opening-logo-button {
+    width: 76px;
+  }
+  .opening-couple h2 {
+    font-size: 22px;
+  }
+}
+
+.paired-monograms { display: flex; justify-content: center; gap: 0.75rem; margin-bottom: 0.75rem; }
+.event-content .paired-monograms .monogram { width: clamp(55px, 15cqi, 90px); height: auto; margin: 0; }
+
+/* One shared crest and a single content column prevent overlapping couple cards. */
+.invitation-opening .joint-opening-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  width: min(82vw, 660px);
+  min-width: 0;
+  margin: auto;
+  padding: 1.5rem 0;
+  text-align: center;
+}
+.joint-opening-content > * {
+  position: relative;
+  flex: 0 0 auto;
+  min-width: 0;
+  max-width: 100%;
+}
+.joint-opening-content .opening-flower {
+  margin: 0 auto 0.5rem;
+  width: 24px;
+  height: 24px;
+}
+.joint-opening-content .opening-kicker {
+  font-size: clamp(10px, 1.5vw, 12px);
+  letter-spacing: 0.12em;
+  line-height: 1.7;
+}
+.joint-opening-button {
+  display: block;
+  width: clamp(132px, 24vh, 210px);
+  aspect-ratio: 1;
+  margin: 0.35rem auto;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  box-shadow: 0 8px 30px rgb(117 44 39 / 0.12);
+  cursor: pointer;
+  touch-action: manipulation;
+}
+.joint-opening-button img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: contain;
+}
+.joint-opening-names {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  width: 100%;
+  margin: 0;
+  color: var(--taupe);
+  font: 500 clamp(24px, 3.8vw, 35px)/1.2 var(--font-display);
+}
+.joint-opening-pair {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem 0.5rem;
+  text-wrap: balance;
+}
+.joint-opening-pair + .joint-opening-pair {
+  border-top: 1px solid rgb(171 133 46 / 0.3);
+  padding-top: 0.8rem;
+}
+.joint-opening-pair em {
+  color: var(--gold);
+  font-family: var(--font-script);
+  font-size: 0.8em;
+}
+.joint-opening-content .opening-tap-hint {
+  width: 20px;
+  height: 20px;
+  margin: 0 auto 0.4rem;
+}
+.joint-opening-content .opening-instruction {
+  font-size: 11px;
+  line-height: 1.7;
+  letter-spacing: 0.1em;
+}
+.joint-opening-content .opening-whisper,
+.joint-opening-content .opening-song-note,
+.joint-opening-content .opening-location {
+  font-size: 10px;
+}
+.joint-opening-content .opening-celebration-dates {
+  margin-top: 0.7rem;
+  font-size: 21px;
+}
+.hero-inner > .joint-hero-crest {
+  width: clamp(130px, 24vw, 190px);
+  height: auto;
+  margin: 1.5rem auto;
+}
+.hero h1.joint-hero-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+.hero h1.joint-hero-heading .joint-hero-couple {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: baseline;
+  gap: 0.4rem 0.7rem;
+}
+@media (max-width: 480px) {
+  .joint-opening-content .joint-opening-pair {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.05rem;
+  }
+  .joint-opening-content .joint-opening-names {
+    font-size: clamp(23px, 6.5vw, 29px);
+    gap: 0.6rem;
+  }
+  .joint-opening-content .joint-opening-pair em {
+    font-size: 0.6em;
+    line-height: 1;
+  }
+  .joint-opening-button {
+    width: clamp(115px, 19vh, 160px);
+  }
+  .hero h1.joint-hero-heading .joint-hero-couple {
+    display: grid;
+    gap: 0.35rem;
+  }
+}
+@media (max-height: 620px) {
+  .invitation-opening .joint-opening-content {
+    gap: 0.5rem;
+    padding-block: 0.75rem;
+  }
+  .joint-opening-button {
+    width: 105px;
+  }
+  .joint-opening-content .opening-flower,
+  .joint-opening-content .opening-song-note {
+    display: none;
+  }
+  .joint-opening-content .joint-opening-names {
+    font-size: 23px;
+  }
+}
