@@ -1,5 +1,5 @@
 export type Celebration = {
-  id: "pre-wedding" | "reception" | "ghudchadi" | "wedding";
+  id: "pre-wedding" | "reception" | "wedding";
   shortName: string;
   title: string;
   dateLabel: string;
@@ -61,12 +61,21 @@ export const invitationConfig = {
     "id": "pre-wedding",
     "shortName": "Haldi & Mehndi",
     "title": "Haldi & Mehndi — A Joyful Beginning",
-    "dateLabel": "Wednesday, 02 December 2026",
+    "dateLabel": "02 & 03 December 2026",
     "timeLabel": "",
-    "schedule": [],
+    "schedule": [
+      {
+        "name": "Haldi & Mehndi",
+        "time": "02 December 2026"
+      },
+      {
+        "name": "Ghudchadi",
+        "time": "03 December 2026 · 7:00 p.m."
+      }
+    ],
     "venue": "Wedding venue · Assandh",
     "address": "Malikpure Bypass Rd, Vishkarmanagar, Assandh, Assandh Ruralpart, Haryana 132039",
-    "supportingLine": "A golden glow, henna-filled hands and the warmth of family.",
+    "supportingLine": "Turmeric, henna and a festive Ghudchadi evening with our families.",
     "start": "2026-12-02",
     "calendarTitle": "Naveen & Ujala and Pardeep & Nisha · Haldi & Mehndi",
     "image": "/assets/naveen-ujala-haldi-mehndi-v2.jpg",
@@ -87,27 +96,6 @@ export const invitationConfig = {
     "start": "2026-12-03",
     "calendarTitle": "Naveen & Ujala and Pardeep & Nisha · Lunch & Reception",
     "image": "/assets/kishan-pooja-reception-arch-v3.jpg",
-    "scene": "lanterns"
-  },
-  {
-    "venue": "Wedding venue · Assandh",
-    "address": "Malikpure Bypass Rd, Vishkarmanagar, Assandh, Assandh Ruralpart, Haryana 132039",
-    "mapUrl": "https://maps.app.goo.gl/L4aprKSfMCRGbpLd7?g_st=ic",
-    "id": "ghudchadi",
-    "shortName": "Ghudchadi",
-    "title": "Ghudchadi — An Evening of Celebration",
-    "dateLabel": "Thursday, 03 December 2026",
-    "timeLabel": "7:00 p.m.",
-    "schedule": [
-      {
-        "name": "Ghudchadi ceremony",
-        "time": "7:00 p.m."
-      }
-    ],
-    "supportingLine": "Join our families for a festive evening as the grooms begin their wedding celebrations.",
-    "start": "2026-12-03T19:00:00+05:30",
-    "calendarTitle": "Naveen & Ujala and Pardeep & Nisha · Ghudchadi",
-    "image": "/assets/naveen-ujala-opening-v2.jpg",
     "scene": "lanterns"
   },
   {

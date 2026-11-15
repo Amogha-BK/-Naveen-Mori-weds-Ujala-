@@ -51,33 +51,32 @@ function Monogram({ className = "" }: { className?: string }) {
   );
 }
 
+function CoupleNames({ couple }: { couple: { groom: string; bride: string } }) {
+  return (
+    <span className="crest-couple-names">
+      <span>{couple.groom}</span><em>&amp;</em><span>{couple.bride}</span>
+    </span>
+  );
+}
+
 function InvitationOpening({ onOpen }: { onOpen: () => void }) {
   const reducedMotion = useReducedMotion();
   const isPresent = useIsPresent();
-  const moveSeal = (event: React.PointerEvent<HTMLElement>) => {
-    if (reducedMotion || event.pointerType === "touch" || !isPresent) return;
-    const bounds = event.currentTarget.getBoundingClientRect();
-    event.currentTarget.style.setProperty(
-      "--seal-x",
-      `${((event.clientX - bounds.left) / bounds.width - 0.5) * 12}px`,
-    );
-    event.currentTarget.style.setProperty(
-      "--seal-y",
-      `${((event.clientY - bounds.top) / bounds.height - 0.5) * 12}px`,
-    );
-  };
   return (
     <motion.section
       className="invitation-opening"
       aria-label={`Open the wedding invitation for ${jointInvitationLabel}`}
       initial={{ opacity: 1 }}
-      exit={{ opacity: reducedMotion ? 0 : [1, 1, 0] }}
-      transition={{ duration: reducedMotion ? 0.15 : 1.65, times: [0, 0.9, 1], ease: "easeInOut" }}
-      onPointerMove={moveSeal}
-      onPointerLeave={(event) => {
-        event.currentTarget.style.setProperty("--seal-x", "0px");
-        event.currentTarget.style.setProperty("--seal-y", "0px");
+      exit={{
+        opacity: reducedMotion ? 0 : [1, 1, 0],
+        backgroundColor: "rgba(251, 242, 228, 0)",
       }}
+      transition={{
+        opacity: { duration: reducedMotion ? 0.1 : 0.7, times: [0, 0.8, 1], ease: "easeInOut" },
+        backgroundColor: { duration: reducedMotion ? 0.1 : 0.15 },
+      }}
+      inert={!isPresent}
+      style={{ pointerEvents: isPresent ? "auto" : "none" }}
     >
       {[-1, 1].map((direction) => (
         <motion.div
@@ -85,75 +84,44 @@ function InvitationOpening({ onOpen }: { onOpen: () => void }) {
           className={`opening-gate ${direction < 0 ? "opening-gate-left" : "opening-gate-right"}`}
           aria-hidden="true"
           exit={reducedMotion ? { opacity: 0 } : { x: `${direction * 104}%` }}
-          transition={{
-            duration: reducedMotion ? 0.15 : 1.15,
-            delay: reducedMotion ? 0 : 0.3,
-            ease: [0.65, 0, 0.2, 1],
-          }}
+          transition={{ type: "tween", duration: reducedMotion ? 0.1 : 0.5, delay: reducedMotion ? 0 : 0.12, ease: [0.65, 0, 0.2, 1] }}
         />
       ))}
-      <motion.div
-        className="opening-floral-backdrop"
-        aria-hidden="true"
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.5 }}
-      />
-      <motion.div
-        className="paper-grain"
-        aria-hidden="true"
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.4 }}
-      />
-      <motion.div
-        className="opening-stationery-frame"
-        aria-hidden="true"
-        exit={{ opacity: 0, scale: reducedMotion ? 1 : 1.04 }}
-        transition={{ duration: 0.45 }}
-      />
-      <motion.div
-        className="opening-sparkles"
-        aria-hidden="true"
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        {Array.from({ length: 8 }, (_, index) => (
-          <i key={index} />
-        ))}
-      </motion.div>
-      <div className="joint-opening-content">
-        <motion.div
-          exit={{ opacity: 0, y: reducedMotion ? 0 : -18 }}
-          transition={{ duration: 0.35 }}
-        >
+      <motion.div className="opening-floral-backdrop" aria-hidden="true"
+        exit={{ opacity: 0 }} transition={{ duration: reducedMotion ? 0.1 : 0.25 }} />
+      <motion.div className="paper-grain" aria-hidden="true"
+        exit={{ opacity: 0 }} transition={{ duration: reducedMotion ? 0.1 : 0.2 }} />
+      <motion.div className="joint-opening-content"
+        exit={{ opacity: 0, y: reducedMotion ? 0 : -12 }}
+        transition={{ type: "tween", duration: reducedMotion ? 0.1 : 0.32, ease: "easeOut" }}>
+        <div>
           <Flower2 className="opening-flower" strokeWidth={1} aria-hidden="true" />
           <p className="opening-kicker">Two beautiful unions, one celebration</p>
-        </motion.div>
+        </div>
+        <h1 className="couple-crest-stack opening-crest-stack">
+          <CoupleNames couple={invitationCouples[0]} />
         <motion.button
           type="button" className="joint-opening-button focus-ring"
           onClick={onOpen} disabled={!isPresent} autoFocus
           aria-label={`Open the wedding invitation for ${jointInvitationLabel}`}
           whileHover={reducedMotion ? undefined : { scale: 1.04 }}
           whileTap={reducedMotion ? undefined : { scale: 0.96 }}
-          exit={{ opacity: 0, scale: reducedMotion ? 1 : 1.1 }}>
+          exit={{ opacity: 0, scale: reducedMotion ? 1 : 1.16, rotate: reducedMotion ? 0 : -4,
+            transition: { type: "tween", duration: reducedMotion ? 0.1 : 0.28, ease: "easeOut" } }}
+          transition={{ type: "tween", duration: 0.12, ease: "easeOut" }}>
           <img src={config.monogram} alt="Combined N & U and P & N wedding crest" width={480} height={480} fetchPriority="high" />
         </motion.button>
-        <h1 className="joint-opening-names">
-          {invitationCouples.map((couple) => (
-            <span className="joint-opening-pair" key={couple.groom}>
-              <span>{couple.groom}</span><em>weds</em><span>{couple.bride}</span>
-            </span>
-          ))}
+          <CoupleNames couple={invitationCouples[1]} />
         </h1>
-        <motion.div className="joint-opening-footer"
-          exit={{ opacity: 0, y: reducedMotion ? 0 : 14 }} transition={{ duration: 0.3 }}>
+        <div className="joint-opening-footer">
           <p className="opening-celebration-dates">{config.celebrationDates}</p>
           <p className="opening-location">Assandh, Haryana</p>
           <button className="joint-open-action focus-ring" type="button" onClick={onOpen} disabled={!isPresent}>
             Open invitation <ChevronsDown size={16} aria-hidden="true" />
           </button>
           <p className="opening-song-note"><Music size={11} aria-hidden="true" /> Opens with music</p>
-        </motion.div>
-      </div>
+        </div>
+      </motion.div>
     </motion.section>
   );
 }
@@ -788,23 +756,11 @@ export default function App() {
             <div className="hero-inner">
               <p className="ganesh-invocation">{config.invocation}</p>
               <p className="eyebrow">The wedding celebrations of</p>
-              <Monogram className="joint-hero-crest" />
-              <h1 className="joint-hero-heading" ref={invitationHeading} tabIndex={-1}>
-                {invitationCouples.map((couple) => (
-                  <span className="joint-hero-couple" key={couple.groom}>
-                    <span>{couple.groom}</span>
-                    <span className="joint-hero-weds">weds</span>
-                    <span>{couple.bride}</span>
-                  </span>
-                ))}
+              <h1 className="couple-crest-stack hero-crest-stack" ref={invitationHeading} tabIndex={-1}>
+                <CoupleNames couple={invitationCouples[0]} />
+                <Monogram className="shared-couple-crest" />
+                <CoupleNames couple={invitationCouples[1]} />
               </h1>
-              <div className="couple-dates">
-                <p><span>Save the date &middot; Haldi &amp; Mehndi</span><time dateTime="2026-12-02">{config.saveTheDate}</time></p>
-                <p><span>Lunch &amp; Reception</span><time dateTime="2026-12-03">03 December 2026</time></p>
-                <p><span>Ghudchadi</span><time dateTime="2026-12-03T19:00:00+05:30">03 December 2026 &middot; 7:00 p.m.</time></p>
-                <p><span>Wedding day</span><time dateTime="2026-12-04">{config.dateLabel}</time></p>
-                <p className="couple-location">{config.locationLabel}</p>
-              </div>
               <p className="hero-mantra" lang="sa">
                 {config.ganeshMantra[0]}
                 <br />
@@ -879,19 +835,10 @@ export default function App() {
 
           <section className="second-couple-section" aria-labelledby="second-couple-heading">
             <p className="eyebrow">With joyful hearts</p>
-            <img
-              className="monogram second-couple-monogram"
-              src={config.secondCouple.monogram}
-              alt="P and N wedding monogram for Pardeep Mori and Nisha Suneha"
-              width={480}
-              height={480}
-              loading="lazy"
-              decoding="async"
-            />
-            <h2 id="second-couple-heading">
-              <span>{config.secondCouple.groom}</span>
-              <span className="second-couple-ampersand">&amp;</span>
-              <span>{config.secondCouple.bride}</span>
+            <h2 id="second-couple-heading" className="couple-crest-stack inside-crest-stack">
+              <CoupleNames couple={invitationCouples[0]} />
+              <Monogram className="shared-couple-crest" />
+              <CoupleNames couple={invitationCouples[1]} />
             </h2>
             <div className="botanical-rule" aria-hidden="true">
               <i /><Flower2 strokeWidth={1} /><i />
