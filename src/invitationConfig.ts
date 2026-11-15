@@ -1,5 +1,5 @@
 export type Celebration = {
-  id: "pre-wedding" | "wedding";
+  id: "pre-wedding" | "reception" | "ghudchadi" | "wedding";
   shortName: string;
   title: string;
   dateLabel: string;
@@ -32,7 +32,8 @@ export const invitationConfig = {
     groomAddress: "3C, Chetanya Wali Gali, Safido Road, Asand",
     brideAddress: "Vill. Lalluwal, Teh. Tohana, Distt. Fatehabad",
   },
-  saveTheDate: "03 December 2026",
+  saveTheDate: "02 December 2026",
+  celebrationDates: "2 - 4 December 2026",
   dateLabel: "04 December 2026",
   locationLabel: "Assandh, Haryana",
   weddingLabel: "Friday, 04 December 2026 · Assandh, Haryana",
@@ -60,17 +61,54 @@ export const invitationConfig = {
     "id": "pre-wedding",
     "shortName": "Haldi & Mehndi",
     "title": "Haldi & Mehndi — A Joyful Beginning",
-    "dateLabel": "Thursday, 03 December 2026",
+    "dateLabel": "Wednesday, 02 December 2026",
     "timeLabel": "",
     "schedule": [],
     "venue": "Wedding venue · Assandh",
     "address": "Malikpure Bypass Rd, Vishkarmanagar, Assandh, Assandh Ruralpart, Haryana 132039",
     "supportingLine": "A golden glow, henna-filled hands and the warmth of family.",
-    "start": "2026-12-03",
+    "start": "2026-12-02",
     "calendarTitle": "Naveen & Ujala and Pardeep & Nisha · Haldi & Mehndi",
     "image": "/assets/naveen-ujala-haldi-mehndi-v2.jpg",
     "scene": "lanterns",
     "mapUrl": "https://maps.app.goo.gl/L4aprKSfMCRGbpLd7?g_st=ic"
+  },
+  {
+    "venue": "Wedding venue · Assandh",
+    "address": "Malikpure Bypass Rd, Vishkarmanagar, Assandh, Assandh Ruralpart, Haryana 132039",
+    "mapUrl": "https://maps.app.goo.gl/L4aprKSfMCRGbpLd7?g_st=ic",
+    "id": "reception",
+    "shortName": "Lunch & Reception",
+    "title": "Reception — An Afternoon of Togetherness",
+    "dateLabel": "Thursday, 03 December 2026",
+    "timeLabel": "",
+    "schedule": [],
+    "supportingLine": "A joyful gathering over lunch, love and the blessings of our families.",
+    "start": "2026-12-03",
+    "calendarTitle": "Naveen & Ujala and Pardeep & Nisha · Lunch & Reception",
+    "image": "/assets/kishan-pooja-reception-arch-v3.jpg",
+    "scene": "lanterns"
+  },
+  {
+    "venue": "Wedding venue · Assandh",
+    "address": "Malikpure Bypass Rd, Vishkarmanagar, Assandh, Assandh Ruralpart, Haryana 132039",
+    "mapUrl": "https://maps.app.goo.gl/L4aprKSfMCRGbpLd7?g_st=ic",
+    "id": "ghudchadi",
+    "shortName": "Ghudchadi",
+    "title": "Ghudchadi — An Evening of Celebration",
+    "dateLabel": "Thursday, 03 December 2026",
+    "timeLabel": "7:00 p.m.",
+    "schedule": [
+      {
+        "name": "Ghudchadi ceremony",
+        "time": "7:00 p.m."
+      }
+    ],
+    "supportingLine": "Join our families for a festive evening as the grooms begin their wedding celebrations.",
+    "start": "2026-12-03T19:00:00+05:30",
+    "calendarTitle": "Naveen & Ujala and Pardeep & Nisha · Ghudchadi",
+    "image": "/assets/naveen-ujala-opening-v2.jpg",
+    "scene": "lanterns"
   },
   {
     "id": "wedding",

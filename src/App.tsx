@@ -9,7 +9,6 @@ import {
   Menu,
   Music,
   Pause,
-  Pointer,
   Send,
   Volume2,
   VolumeX,
@@ -141,19 +140,18 @@ function InvitationOpening({ onOpen }: { onOpen: () => void }) {
         <h1 className="joint-opening-names">
           {invitationCouples.map((couple) => (
             <span className="joint-opening-pair" key={couple.groom}>
-              <span>{couple.groom}</span><em>&amp;</em><span>{couple.bride}</span>
+              <span>{couple.groom}</span><em>weds</em><span>{couple.bride}</span>
             </span>
           ))}
         </h1>
-        <motion.div exit={{ opacity: 0, y: reducedMotion ? 0 : 14 }} transition={{ duration: 0.3 }}>
-          <Pointer className="opening-tap-hint" strokeWidth={1.2} aria-hidden="true" />
-          <p className="opening-instruction">Tap the wedding crest</p>
-          <p className="opening-whisper">to open our invitation</p>
-          <p className="opening-celebration-dates">3 &amp; 4 December 2026</p>
+        <motion.div className="joint-opening-footer"
+          exit={{ opacity: 0, y: reducedMotion ? 0 : 14 }} transition={{ duration: 0.3 }}>
+          <p className="opening-celebration-dates">{config.celebrationDates}</p>
           <p className="opening-location">Assandh, Haryana</p>
-          <p className="opening-song-note">
-            <Music size={11} aria-hidden="true" /> Opens with music
-          </p>
+          <button className="joint-open-action focus-ring" type="button" onClick={onOpen} disabled={!isPresent}>
+            Open invitation <ChevronsDown size={16} aria-hidden="true" />
+          </button>
+          <p className="opening-song-note"><Music size={11} aria-hidden="true" /> Opens with music</p>
         </motion.div>
       </div>
     </motion.section>
@@ -801,8 +799,10 @@ export default function App() {
                 ))}
               </h1>
               <div className="couple-dates">
-                <p><span>Save the date &middot; Haldi &amp; Mehndi</span><time dateTime="2026-12-03">{config.saveTheDate}</time></p>
-                <p><span>Wedding celebrations</span><time dateTime="2026-12-04">{config.dateLabel}</time></p>
+                <p><span>Save the date &middot; Haldi &amp; Mehndi</span><time dateTime="2026-12-02">{config.saveTheDate}</time></p>
+                <p><span>Lunch &amp; Reception</span><time dateTime="2026-12-03">03 December 2026</time></p>
+                <p><span>Ghudchadi</span><time dateTime="2026-12-03T19:00:00+05:30">03 December 2026 &middot; 7:00 p.m.</time></p>
+                <p><span>Wedding day</span><time dateTime="2026-12-04">{config.dateLabel}</time></p>
                 <p className="couple-location">{config.locationLabel}</p>
               </div>
               <p className="hero-mantra" lang="sa">

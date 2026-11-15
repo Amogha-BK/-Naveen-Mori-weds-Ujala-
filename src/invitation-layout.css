@@ -1,0 +1,277 @@
+/* Shared invitation layout. Keep phone sizing in one place. */
+.invitation-opening {
+  display: block;
+  height: 100%;
+  height: 100dvh;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 0;
+  background: #fbf2e4;
+  -webkit-overflow-scrolling: touch;
+}
+.invitation-opening .opening-floral-backdrop {
+  position: fixed;
+  background-size: auto 100%;
+  background-position: center;
+}
+.invitation-opening .joint-opening-content {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  width: min(100%, 620px);
+  min-height: 100%;
+  margin: 0 auto;
+  padding: max(36px, env(safe-area-inset-top, 0px)) max(32px, env(safe-area-inset-right, 0px)) max(36px, env(safe-area-inset-bottom, 0px)) max(32px, env(safe-area-inset-left, 0px));
+  text-align: center;
+}
+.joint-opening-content::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 14px 16px;
+  border: 1px solid rgb(171 133 46 / 0.22);
+  border-radius: 24px;
+  background: rgb(255 249 239 / 0.94);
+  box-shadow: 0 6px 28px rgb(99 65 24 / 0.06);
+  pointer-events: none;
+}
+.joint-opening-content > * {
+  position: relative;
+  flex-shrink: 0;
+  min-width: 0;
+  max-width: 100%;
+}
+.joint-opening-content .opening-flower {
+  display: none;
+}
+.joint-opening-content .opening-kicker {
+  max-width: 280px;
+  padding: 0;
+  font: 600 10px/1.8 var(--font-body);
+  letter-spacing: 0.16em;
+}
+.joint-opening-button {
+  display: block;
+  width: 160px;
+  height: 160px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  box-shadow: 0 6px 24px rgb(117 44 39 / 0.12);
+  cursor: pointer;
+  touch-action: manipulation;
+}
+.joint-opening-button img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: contain;
+}
+.joint-opening-content .joint-opening-names {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 18px;
+  width: 100%;
+  margin: 0;
+  color: var(--taupe);
+  font: 500 32px/1.2 var(--font-display);
+  letter-spacing: 0;
+}
+.joint-opening-content .joint-opening-pair {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  justify-items: center;
+  gap: 4px;
+  min-width: 0;
+}
+.joint-opening-pair > span {
+  display: block;
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: normal;
+  text-wrap: balance;
+}
+.joint-opening-pair + .joint-opening-pair::before {
+  content: "";
+  width: 64px;
+  height: 1px;
+  margin-bottom: 14px;
+  background: var(--gold-light);
+}
+.joint-opening-pair em {
+  color: var(--gold);
+  font: 400 18px/1.1 var(--font-script);
+}
+.joint-opening-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  width: 100%;
+}
+.joint-opening-footer .opening-celebration-dates {
+  margin: 0;
+  font: 600 21px/1.4 var(--font-display);
+  letter-spacing: 0.025em;
+}
+.joint-opening-footer .opening-location {
+  margin: 0;
+  font: 500 10px/1.5 var(--font-body);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.joint-open-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 46px;
+  margin-top: 8px;
+  padding: 12px 24px;
+  border: 1px solid #ab852e;
+  border-radius: 999px;
+  background: #752c27;
+  color: #fff8e9;
+  font: 600 11px/1.5 var(--font-body);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+.joint-opening-footer .opening-song-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin: 0;
+  font-size: 10px;
+  line-height: 1.5;
+}
+.site-nav .nav-mark {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 16px;
+  white-space: nowrap;
+}
+.site-nav .nav-mark .nav-couple-initials {
+  color: var(--taupe);
+  font: 500 15px/1.5 var(--font-display);
+  letter-spacing: 0.025em;
+}
+.nav-couple-initials i,
+.site-nav .nav-mark .nav-couple-divider {
+  color: var(--gold);
+  font-weight: 400;
+}
+.hero-inner > .joint-hero-crest {
+  width: 150px;
+  height: auto;
+  margin: 22px auto;
+}
+.hero h1.joint-hero-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font: 500 clamp(28px, 4vw, 42px)/1.25 var(--font-display);
+  white-space: normal;
+  letter-spacing: 0;
+}
+.hero h1.joint-hero-heading .joint-hero-couple {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  justify-items: center;
+  gap: 6px;
+  max-width: 100%;
+  text-wrap: balance;
+}
+.joint-hero-couple + .joint-hero-couple::before {
+  content: "";
+  width: 70px;
+  height: 1px;
+  margin-bottom: 20px;
+  background: var(--gold-light);
+}
+.joint-hero-couple .joint-hero-weds {
+  color: var(--gold);
+  font: 400 20px/1.2 var(--font-script);
+}
+@media (max-width: 600px) {
+  .invitation-opening .joint-opening-content {
+    gap: 16px;
+    padding-top: max(28px, env(safe-area-inset-top, 0px));
+    padding-bottom: max(28px, env(safe-area-inset-bottom, 0px));
+    padding-inline: max(32px, env(safe-area-inset-left, 0px)) max(32px, env(safe-area-inset-right, 0px));
+  }
+  .joint-opening-button {
+    width: clamp(110px, 18svh, 142px);
+    height: auto;
+    aspect-ratio: 1;
+  }
+  .joint-opening-content .joint-opening-names {
+    font-size: clamp(26px, 7.4vw, 32px);
+    gap: 15px;
+  }
+  .joint-opening-pair + .joint-opening-pair::before {
+    margin-bottom: 11px;
+  }
+  .site-nav {
+    gap: 6px;
+    padding-inline: max(12px, env(safe-area-inset-left, 0px)) max(12px, env(safe-area-inset-right, 0px));
+  }
+  .site-nav .music-controls {
+    gap: 4px;
+  }
+  .site-nav .nav-mark {
+    gap: 4px;
+    font-size: 14px;
+  }
+  .hero h1.joint-hero-heading {
+    font-size: clamp(28px, 8vw, 36px);
+  }
+  .family-section .invitation-families h2 {
+    font-size: clamp(32px, 9vw, 42px);
+    line-height: 1.2;
+    overflow-wrap: normal;
+  }
+  .second-couple-section h2 {
+    font-size: clamp(30px, 8vw, 40px);
+  }
+}
+@media (max-height: 700px) {
+  .invitation-opening .joint-opening-content {
+    gap: 12px;
+    padding-block: max(20px, env(safe-area-inset-top, 0px)) max(20px, env(safe-area-inset-bottom, 0px));
+  }
+  .joint-opening-button {
+    width: 108px;
+    height: 108px;
+  }
+  .joint-opening-content .joint-opening-names {
+    font-size: 27px;
+    gap: 12px;
+  }
+}
+@media (max-height: 480px) and (orientation: landscape) {
+  .invitation-opening .joint-opening-content {
+    justify-content: flex-start;
+    padding-block: 24px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .joint-opening-button,
+  .joint-open-action {
+    transition: none;
+  }
+}
