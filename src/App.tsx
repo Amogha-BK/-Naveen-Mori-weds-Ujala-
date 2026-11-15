@@ -345,7 +345,7 @@ function Navigation({ children }: { children: React.ReactNode }) {
         aria-label="Home"
         onClick={() => setOpen(false)}
       >
-        K <span>&</span> P
+        {config.couple.first[0]} <span>&amp;</span> {config.couple.second[0]}
       </a>
       <div id="invitation-navigation" className={`nav-links ${open ? "nav-links-open" : ""}`}>
         {navItems.map(([label, id]) => (
