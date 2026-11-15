@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 360" role="img" aria-labelledby="title">
+  <title id="title">Naveen and Ujala wedding monogram</title>
+  <defs>
+    <radialGradient id="paper"><stop stop-color="#fffdf6"/><stop offset="1" stop-color="#f2e6d4"/></radialGradient>
+    <linearGradient id="gold" x2="1" y2="1"><stop stop-color="#946523"/><stop offset=".35" stop-color="#e2c17a"/><stop offset=".65" stop-color="#b58a3d"/><stop offset="1" stop-color="#edd8a2"/></linearGradient>
+    <g id="sprig" fill="none" stroke="url(#gold)" stroke-width="1.3">
+      <path d="M142 299C64 267 44 164 110 87"/>
+      <g fill="#b7ab7d" stroke="#a68a4f" stroke-width=".6">
+        <path d="M120 287Q90 282 91 262Q110 262 120 287Z"/>
+        <path d="M101 271Q102 244 119 238Q121 258 101 271Z"/>
+        <path d="M85 248Q58 239 64 220Q83 224 85 248Z"/>
+        <path d="M74 224Q78 201 95 198Q96 214 74 224Z"/>
+        <path d="M70 198Q47 185 54 167Q72 176 70 198Z"/>
+        <path d="M72 172Q82 151 98 154Q95 171 72 172Z"/>
+        <path d="M79 146Q61 127 73 114Q88 125 79 146Z"/>
+        <path d="M92 117Q105 102 119 108Q112 122 92 117Z"/>
+      </g>
+      <g fill="#fffaf0" stroke="#c6a15c" stroke-width=".7">
+        <path d="M84 254q-18-6-6-15q-4-16 9-10q13-10 13 5q15 7 0 14q0 15-16 6Z"/>
+        <path d="M68 187q-16-5-6-13q-3-14 8-9q12-9 12 4q13 6 0 12q0 13-14 6Z"/>
+        <path d="M98 104q-16-5-6-13q-3-14 8-9q12-9 12 4q13 6 0 12q0 13-14 6Z"/>
+      </g>
+      <g fill="#bd934b" stroke="none"><circle cx="87" cy="240" r="3"/><circle cx="72" cy="175" r="3"/><circle cx="102" cy="92" r="3"/></g>
+    </g>
+  </defs>
+  <circle cx="180" cy="180" r="175" fill="url(#paper)" stroke="url(#gold)" stroke-width="2"/>
+  <circle cx="180" cy="180" r="165" fill="none" stroke="url(#gold)" stroke-width="5"/>
+  <circle cx="180" cy="180" r="158" fill="none" stroke="#be9b58" stroke-width="1"/>
+  <circle cx="180" cy="180" r="170" fill="none" stroke="#be9b58" stroke-width="1" stroke-dasharray="1 5"/>
+  <use href="#sprig"/><use href="#sprig" transform="translate(360 0) scale(-1 1)"/>
+  <g fill="#f8ecce" stroke="url(#gold)" stroke-width="1.3">
+    <path d="M180 48Q151 35 180 9Q209 35 180 48Z"/>
+    <path d="M178 48Q147 49 148 25Q170 26 178 48Z"/>
+    <path d="M182 48Q213 49 212 25Q190 26 182 48Z"/>
+    <path d="M180 303Q157 321 180 341Q203 321 180 303Z"/>
+  </g>
+  <g fill="#76232a" font-family="Georgia, 'Times New Roman', serif" font-style="italic">
+    <text x="89" y="201" font-size="104">N</text>
+    <text x="180" y="244" font-size="108">U</text>
+    <text x="180" y="167" font-size="30" text-anchor="middle">&amp;</text>
+  </g>
+  <path d="M114 278Q180 309 246 278" fill="none" stroke="url(#gold)" stroke-width="1.3"/>
+  <text x="180" y="72" text-anchor="middle" fill="#987338" font-family="Georgia, serif" font-size="9" letter-spacing="3">NAVEEN &amp; UJALA</text>
+</svg>

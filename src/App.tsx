@@ -33,7 +33,7 @@ const indiaClock = new Intl.DateTimeFormat("en-GB", {
 const navItems = [
   ["Our Wedding", "our-wedding"],
   ["Celebrations", "celebrations"],
-  ["Contact", "contact"],
+  ["Venue", "venue"],
 ] as const;
 
 function Monogram({ className = "" }: { className?: string }) {
@@ -41,7 +41,7 @@ function Monogram({ className = "" }: { className?: string }) {
     <img
       className={`monogram ${className}`}
       src={config.monogram}
-      alt="K and P wedding monogram for Krishan and Pooja"
+      alt="N and U wedding monogram for Naveen Mori and Ujala"
     />
   );
 }
@@ -64,7 +64,7 @@ function InvitationOpening({ onOpen }: { onOpen: () => void }) {
   return (
     <motion.section
       className="invitation-opening"
-      aria-label="Open Krishan and Pooja’s wedding invitation"
+      aria-label="Open Naveen Mori and Ujala’s wedding invitation"
       initial={{ opacity: 1 }}
       exit={{ opacity: reducedMotion ? 0 : [1, 1, 0] }}
       transition={{ duration: reducedMotion ? 0.15 : 1.65, times: [0, 0.9, 1], ease: "easeInOut" }}
@@ -139,7 +139,7 @@ function InvitationOpening({ onOpen }: { onOpen: () => void }) {
             onClick={onOpen}
             disabled={!isPresent}
             autoFocus
-            aria-label="Open Krishan and Pooja’s wedding invitation"
+            aria-label="Open Naveen Mori and Ujala’s wedding invitation"
             whileHover={reducedMotion ? undefined : { scale: 1.09, rotate: -3 }}
             whileTap={reducedMotion ? undefined : { scale: 0.9, rotate: 2 }}
             exit={
@@ -182,6 +182,8 @@ function InvitationOpening({ onOpen }: { onOpen: () => void }) {
           <Pointer className="opening-tap-hint" strokeWidth={1.2} aria-hidden="true" />
           <p className="opening-instruction">Tap the monogram</p>
           <p className="opening-whisper">to open our invitation</p>
+          <p className="opening-celebration-dates">3 &amp; 4 December 2026</p>
+          <p className="opening-location">Assandh, Haryana</p>
           <p className="opening-song-note">
             <Music size={11} aria-hidden="true" /> Opens with music
           </p>
@@ -491,14 +493,14 @@ function EventCard({ event, index }: { event: Celebration; index: number }) {
             <time className="event-date" dateTime={event.start.split("T")[0]}>
               {event.dateLabel}
             </time>
-            <dl className="event-schedule">
+            {event.schedule.length > 0 && <dl className="event-schedule">
               {event.schedule.map((item) => (
                 <div key={item.name}>
                   <dt>{item.name}</dt>
-                  <dd>{item.time}</dd>
+                  {item.time && <dd>{item.time}</dd>}
                 </div>
               ))}
-            </dl>
+            </dl>}
           </div>
         </div>
       </div>
@@ -692,7 +694,7 @@ function RSVP() {
         </AnimatePresence>
         <label className="field">
           <span>
-            Message for Krishan &amp; Pooja <em>Optional</em>
+            Message for Naveen &amp; Ujala <em>Optional</em>
           </span>
           <textarea
             rows={4}
@@ -835,6 +837,11 @@ export default function App() {
                   {config.couple.secondParents && <p>{config.couple.secondParents}</p>}
                 </div>
               )}
+              <div className="couple-dates">
+                <p><span>Save the date ? Haldi &amp; Mehndi</span><time dateTime="2026-12-03">{config.saveTheDate}</time></p>
+                <p><span>Wedding celebrations</span><time dateTime="2026-12-04">{config.dateLabel}</time></p>
+                <p className="couple-location">{config.locationLabel}</p>
+              </div>
               <p className="hero-mantra" lang="sa">
                 {config.ganeshMantra[0]}
                 <br />
@@ -864,7 +871,7 @@ export default function App() {
             <div className="hero-artwork" aria-hidden="true">
               <img
                 src={config.artwork}
-                srcSet={`${config.artwork.replace(".jpg", "-768.jpg")} 768w, ${config.artwork} 1536w`}
+                srcSet={`${config.artwork.replace(".jpg", "-640.jpg")} 640w, ${config.artwork} 1024w`}
                 sizes="(min-width: 1100px) 1040px, (min-width: 760px) 760px, 100vw"
                 alt=""
                 loading="lazy"
@@ -885,6 +892,23 @@ export default function App() {
               <p className="ganesh-invocation family-invocation">{config.invocation}</p>
               <p className="translated-blessing">{config.openingBlessing}</p>
               <p className="family-memory">{config.memorialLine}</p>
+              <p className="family-blessing">{config.invitationLine}</p>
+              <div className="invitation-families">
+                <div>
+                  <p className="eyebrow">{config.couple.groomFamily}</p>
+                  <h2>{config.couple.first}</h2>
+                  <p>{config.couple.firstParents}</p>
+                  <p>{config.couple.groomAddress}</p>
+                </div>
+                <span className="family-weds">weds</span>
+                <div>
+                  <p className="eyebrow">{config.couple.brideFamily}</p>
+                  <h2>{config.couple.second}</h2>
+                  <p>{config.couple.secondParents}</p>
+                  <p>{config.couple.brideGrandparents}</p>
+                  <p>{config.couple.brideAddress}</p>
+                </div>
+              </div>
               <p className="family-blessing">{config.blessingLine}</p>
               <Monogram />
             </motion.div>
@@ -910,6 +934,16 @@ export default function App() {
             </section>
           )}
 
+          <section className="venue-section" id="venue">
+            <div className="venue-content">
+              <SectionHeading eyebrow="Join us in Assandh">The wedding venue</SectionHeading>
+              <div className="venue-detail">
+                <p>{config.venue.address}</p>
+                <a className="button button-outline focus-ring" href={config.venue.mapUrl} target="_blank" rel="noreferrer"><MapPin /> Open in Google Maps</a>
+              </div>
+            </div>
+          </section>
+
           <section className="countdown-section" id="countdown">
             <SectionHeading eyebrow="Until we celebrate">Our forever begins in</SectionHeading>
             <Countdown />
@@ -920,23 +954,8 @@ export default function App() {
               <Monogram />
               <span>From:</span>
               <p className="closing-message">{config.hosts}</p>
-              <p>{config.homeAddress}</p>
-              <div className="family-contacts">
-                <div className="contact-numbers" aria-label="Family contact numbers">
-                  <span className="contact-label">Contact:</span>
-                  {config.contacts.map((number) => (
-                    <span key={number} className="contact-number">
-                      {number.length === 10 ? (
-                        <a className="focus-ring" href={`tel:+91${number}`}>
-                          {number}
-                        </a>
-                      ) : (
-                        number
-                      )}
-                    </span>
-                  ))}
-                </div>
-              </div>
+              <p>Celebrating Naveen Mori &amp; Ujala</p>
+              <p>{config.weddingLabel}</p>
               <div className="closing-rule" aria-hidden="true" />
               <p>Our celebration is complete with you.</p>
             </div>

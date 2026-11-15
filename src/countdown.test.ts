@@ -6,17 +6,18 @@ import { invitationConfig } from "./invitationConfig.ts";
 const wedding = invitationConfig.celebrations.find((event) => event.id === "wedding")!;
 const target = Date.parse(invitationConfig.countdownTarget);
 
-test("wedding celebrations begin 3 December 2026, 5 p.m. IST", () => {
-  assert.equal(new Date(Date.parse(wedding.start)).toISOString(), "2026-12-03T11:30:00.000Z");
+test("wedding is on 4 December 2026 without an invented ceremony time", () => {
+  assert.equal(wedding.start, "2026-12-04");
+  assert.deepEqual(wedding.schedule, []);
 });
 
-test("countdown reaches zero at the start of 3 December in India", () => {
-  assert.equal(new Date(target).toISOString(), "2026-12-02T18:30:00.000Z");
+test("countdown reaches zero at the start of 4 December in India", () => {
+  assert.equal(new Date(target).toISOString(), "2026-12-03T18:30:00.000Z");
 });
 
 test("counts down across November and December in IST", () => {
   assert.deepEqual(getCountdownParts(target, Date.parse("2026-11-13T14:26:50+05:30")), {
-    days: 19,
+    days: 20,
     hours: 9,
     minutes: 33,
     seconds: 10,
@@ -25,15 +26,15 @@ test("counts down across November and December in IST", () => {
 });
 
 test("equivalent international clock readings give the same countdown", () => {
-  const ist = Date.parse("2026-12-02T00:00:00+05:30");
-  const utc = Date.parse("2026-12-01T18:30:00Z");
-  const newYork = Date.parse("2026-12-01T13:30:00-05:00");
+  const ist = Date.parse("2026-12-03T00:00:00+05:30");
+  const utc = Date.parse("2026-12-02T18:30:00Z");
+  const newYork = Date.parse("2026-12-02T13:30:00-05:00");
   const expected = { days: 1, hours: 0, minutes: 0, seconds: 0, complete: false };
   for (const now of [ist, utc, newYork]) assert.deepEqual(getCountdownParts(target, now), expected);
 });
 
 test("midnight on the wedding date completes the countdown", () => {
-  assert.deepEqual(getCountdownParts(target, Date.parse("2026-12-03T00:00:00+05:30")), {
+  assert.deepEqual(getCountdownParts(target, Date.parse("2026-12-04T00:00:00+05:30")), {
     days: 0,
     hours: 0,
     minutes: 0,
@@ -42,7 +43,7 @@ test("midnight on the wedding date completes the countdown", () => {
   });
 });
 
-test("does not finish a fraction of a second before 3 December", () => {
+test("does not finish a fraction of a second before 4 December", () => {
   assert.deepEqual(getCountdownParts(target, target - 1), {
     days: 0,
     hours: 0,
