@@ -41,7 +41,7 @@ function Monogram({ className = "" }: { className?: string }) {
     <img
       className={`monogram ${className}`}
       src={config.monogram}
-      alt="N and U wedding monogram for Naveen Mori and Ujala"
+      alt="N and U wedding monogram for Naveen Mori and Ujala Suneha"
     />
   );
 }
@@ -64,7 +64,7 @@ function InvitationOpening({ onOpen }: { onOpen: () => void }) {
   return (
     <motion.section
       className="invitation-opening"
-      aria-label="Open Naveen Mori and Ujala’s wedding invitation"
+      aria-label="Open Naveen Mori and Ujala Suneha’s wedding invitation"
       initial={{ opacity: 1 }}
       exit={{ opacity: reducedMotion ? 0 : [1, 1, 0] }}
       transition={{ duration: reducedMotion ? 0.15 : 1.65, times: [0, 0.9, 1], ease: "easeInOut" }}
@@ -139,7 +139,7 @@ function InvitationOpening({ onOpen }: { onOpen: () => void }) {
             onClick={onOpen}
             disabled={!isPresent}
             autoFocus
-            aria-label="Open Naveen Mori and Ujala’s wedding invitation"
+            aria-label="Open Naveen Mori and Ujala Suneha’s wedding invitation"
             whileHover={reducedMotion ? undefined : { scale: 1.09, rotate: -3 }}
             whileTap={reducedMotion ? undefined : { scale: 0.9, rotate: 2 }}
             exit={
@@ -694,7 +694,7 @@ function RSVP() {
         </AnimatePresence>
         <label className="field">
           <span>
-            Message for Naveen &amp; Ujala <em>Optional</em>
+            Message for Naveen &amp; Ujala Suneha <em>Optional</em>
           </span>
           <textarea
             rows={4}
@@ -838,7 +838,7 @@ export default function App() {
                 </div>
               )}
               <div className="couple-dates">
-                <p><span>Save the date ? Haldi &amp; Mehndi</span><time dateTime="2026-12-03">{config.saveTheDate}</time></p>
+                <p><span>Save the date &middot; Haldi &amp; Mehndi</span><time dateTime="2026-12-03">{config.saveTheDate}</time></p>
                 <p><span>Wedding celebrations</span><time dateTime="2026-12-04">{config.dateLabel}</time></p>
                 <p className="couple-location">{config.locationLabel}</p>
               </div>
@@ -954,7 +954,7 @@ export default function App() {
               <Monogram />
               <span>From:</span>
               <p className="closing-message">{config.hosts}</p>
-              <p>Celebrating Naveen Mori &amp; Ujala</p>
+              <p>Celebrating Naveen Mori &amp; Ujala Suneha</p>
               <p>{config.weddingLabel}</p>
               <div className="closing-rule" aria-hidden="true" />
               <p>Our celebration is complete with you.</p>
